@@ -2,3 +2,7 @@ language: ruby
 rvm: 
   - 3.0.1
   - jruby
+
+script:
+  - bundle exec rake test
+  - bundle exec rake test:system
