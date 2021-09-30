@@ -1,17 +1,20 @@
 # ACH2006 - 2021
 
-Code Climate Badge
+[![Maintainability](https://api.codeclimate.com/v1/badges/d1ceeea6202e87582686/maintainability)](https://codeclimate.com/github/ThaisLasso/esi-2021/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d1ceeea6202e87582686/test_coverage)](https://codeclimate.com/github/ThaisLasso/esi-2021/test_coverage)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+Heroku      |     Pivotal Tracker
 
-Link pro app Heroku
+---
 
-Pivotal Tracker
+## Integrantes
 
-Integrantes:
+Gabriel Melo
 
-- Paulo Jin Sol Kim
-- Thais Lasso
-- Gabriel Melo
-- Giuseppe Lanna
-- Vinicius Mariano
+Giuseppe Lanna
+
+Paulo Jin Sol Kim
+
+Thais Lasso
+
+Vinicius Mariano
+
