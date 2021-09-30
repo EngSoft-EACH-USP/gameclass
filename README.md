@@ -1,24 +1,17 @@
-# README
+# ACH2006 - 2021
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Code Climate Badge
 
-Things you may want to cover:
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-* Ruby version
+Link pro app Heroku
 
-* System dependencies
+Pivotal Tracker
 
-* Configuration
+Integrantes:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Paulo Jin Sol Kim
+- Thais Lasso
+- Gabriel Melo
+- Giuseppe Lanna
+- Vinicius Mariano
