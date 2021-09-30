@@ -8,13 +8,13 @@ Heroku      |     Pivotal Tracker
 
 ## Integrantes
 
-Gabriel Melo
+10724312 Gabriel André Melo de Oliveira Silva
 
-Giuseppe Lanna
+10724142 Giuseppe Lanna
 
-Paulo Jin Sol Kim
+10724389 Paulo Jin Sol Kim
 
-Thais Lasso
+10724222 Thais Lasso
 
-Vinicius Mariano
+10875965 Vinicius Mariano Bispo
 
