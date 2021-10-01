@@ -171,8 +171,11 @@ GEM
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     nio4r (2.5.8)
+    nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
+    pg (1.2.3)
     puma (5.5.0)
       nio4r (~> 2.0)
     pusher-client (0.6.2)
@@ -303,6 +306,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
@@ -313,6 +317,7 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg (>= 0.18, < 2.0)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
