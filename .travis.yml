@@ -1,5 +1,10 @@
 language: ruby
 
+rvm:
+  - 3.0.1
+
+dist: focal
+
 script:
   - bundle update --bundler
   - bundle exec rake db:migrate
