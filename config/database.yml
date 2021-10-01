@@ -21,5 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  #  url: <%= ENV['DATABASE_URL'] %>
+  url: postgres://eraazxww:l0HbAyyygxiBIHxRfRBrihmu7Mj2LR0E@fanny.db.elephantsql.com/eraazxww
