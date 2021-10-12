@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Travis builder
 gem 'travis'
 gem 'rexml'
+gem 'haml'
 
 
 group :test do
