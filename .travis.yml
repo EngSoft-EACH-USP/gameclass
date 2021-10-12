@@ -6,7 +6,7 @@ rvm:
 dist: focal
 
 script:
-  - bundle exec rails webpacker:instal
+  - rails webpacker:install
   - bundle update --bundler
   - bundle exec rake db:migrate
   - bundle exec rspec spec
