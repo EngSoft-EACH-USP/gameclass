@@ -1,5 +1,6 @@
-
 #language: pt
+
+@coach_mock
 
 Funcionalidade: Pagina de detalhamento do coach
     Como usuario cadastrado do GameClass,
@@ -11,17 +12,11 @@ Cenário: Pagina de detalhamento carrega corretamente
     Quando eu clico em um coach
     Então eu deveria ser redirecionado para a pagina de detalhamento
 
-Cenário: Pagina nao carrega porque dados nao retornaram
-    Dado que estou na pagina de listagem de coaches
-    Quando eu clico em um coach
-    Então eu deveria ser redirecionado para a pagina de detalhamento e receber uma mensagem de erro
-
-Cenário: O botao de contato nao funciona
+Cenário: O botao de voltar funciona corretamente
     Dado que eu estou na página de detalhamento
-    Quando eu clico no botao de contato do coach
-    Então eu deveria ver a mensagem de erro
+    Quando eu clico no botao de voltar
+    Então eu deveria ser redirecionado para a pagina de listagem dos coaches
 
 Cenário: O botao de contato funciona corretamente
     Dado que eu estou na página de detalhamento
-    Quando eu clico no botao de contato do coach
-    Então eu deveria ser redirecionado para um link da API do whatsapp e conseguir enviar uma mensagem para o coach
+    Então o botao de agendamento deve estar certo
