@@ -1,7 +1,8 @@
+
 ###################### Dado
 
 Dado "que eu estou na página de login" do
-    pending
+    visit 'login'
 end
 
 Dado "que eu estou na página inicial" do
@@ -14,16 +15,16 @@ Quando "eu clico no botão de login" do
     pending
 end
 
-Quando 'eu preencho o campo login com {string}' do |string|
-    pending
+Quando 'eu preencho o campo usuário com {string}' do |string|
+    fill_in 'user', :with => string
 end
 
 Quando 'eu preencho o campo senha com {string}' do |string|
-    pending
+    fill_in 'password', :with => string
 end
 
 Quando 'eu clico no botão entrar' do
-    pending
+    click_on 'Entrar'
 end
 
 ###################### Então
@@ -37,5 +38,5 @@ Então 'eu deveria ser redirecionado para a minha área pessoal' do
 end
 
 Então 'eu deveria ver a mensagem única de erro de login.' do
-    pending
+    expect(page).to have_content("error")
 end
