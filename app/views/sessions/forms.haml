@@ -1,9 +1,6 @@
 
-%h1 Login#index
-= session[:logged]
-
 = form_with url: 'login', local: true do |form|
-    %h1 Faça login para entrar
+    %h2 Faça login
     %p
         = form.label "Usuário"
         %br/
@@ -12,5 +9,7 @@
         = form.label "Senha"
         %br/
         = form.password_field :password
+    - if @login_failed
+        %h4 Credenciais inválidas. Tente de novo.
     %p
         = form.submit 'Entrar'

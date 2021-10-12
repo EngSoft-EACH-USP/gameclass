@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
     def forms
         unless session[:logged]
         	render :forms
-		else
-			redirect_to '/'
-		end
+        # Se ele já estava logado, só redireciona para sua página pessoal
+        else
+            redirect_to '/me'
+        end
     end
 
     def create
@@ -19,12 +20,22 @@ class SessionsController < ApplicationController
 				session[:user_id] = @user.id
                 session[:user] = @user
 				session[:logged] = true
-                render :sucesso_teste
+
+                redirect_to '/me'
             else
-                render :fail
+                @login_failed = true
+                render :forms
             end
-		else
-			redirect_to '/'
         end
+    end
+
+    def destroy
+        if session[:logged]
+            session[:logged] = false
+            session[:user] = nil
+            session[:user_id] = nil
+        end
+
+        redirect_to '/'
     end
 end

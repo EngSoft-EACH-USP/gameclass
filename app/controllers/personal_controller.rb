@@ -5,8 +5,8 @@ class PersonalController < ApplicationController
 		if session[:logged]
 			render :home
 		else
-			redirect_to 'login'
+			redirect_to '/login'
 		end
 	end
-	
+
 end
