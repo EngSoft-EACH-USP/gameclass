@@ -141,6 +141,9 @@ GEM
       net-http-pipeline
     globalid (0.5.2)
       activesupport (>= 5.0)
+    haml (5.2.2)
+      temple (>= 0.8.0)
+      tilt
     highline (1.7.10)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -264,6 +267,7 @@ GEM
     sqlite3 (1.4.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
+    temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
     travis (1.8.13)
@@ -315,6 +319,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   cucumber-rails
   database_cleaner
+  haml
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (>= 0.18, < 2.0)
@@ -338,4 +343,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.26
+   2.2.28
