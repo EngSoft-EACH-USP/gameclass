@@ -1,8 +1,0 @@
-%h1 Personal#home
-
-%p Seja bem vindo
-%p
-    = session[:user]
-
-= form_with url: 'login', method: 'delete', local: true do |form|
-    = form.submit 'Sair'
