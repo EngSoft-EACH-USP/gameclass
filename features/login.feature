@@ -6,10 +6,10 @@ Funcionalidade: Login de usuário
     De modo que quando eu preencho os dados e clico
     Eu sou redirecionado para a minha página pessoal
 
-Cenário: Eu tenho um botão login
-    Dado que eu estou na página inicial
-    Quando eu clico no botão de login
-    Então eu deveria ser redirecionado para a página de login
+# Cenário: Eu tenho um botão login
+#    Dado que eu estou na página inicial
+#    Quando eu clico no botão de login
+#    Então eu deveria ser redirecionado para a página de login
 
 Cenário: Já estou logado
     Dado que eu estou logado

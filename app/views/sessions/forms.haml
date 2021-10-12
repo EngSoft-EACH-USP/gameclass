@@ -1,0 +1,16 @@
+
+%h1 Login#index
+= session[:logged]
+
+= form_with url: 'login', local: true do |form|
+    %h1 Faça login para entrar
+    %p
+        = form.label "Usuário"
+        %br/
+        = form.text_field :username
+    %p
+        = form.label "Senha"
+        %br/
+        = form.password_field :password
+    %p
+        = form.submit 'Entrar'
