@@ -36,12 +36,12 @@ Quando "eu clico no botão de login" do
     pending
 end
 
-Quando 'eu preencho o campo usuário com {string}' do |string|
-    fill_in 'username', :with => string
+Quando 'eu preencho o campo usuário com {string}' do |username|
+    fill_in 'username', :with => username
 end
 
-Quando 'eu preencho o campo senha com {string}' do |string|
-    fill_in 'password', :with => string
+Quando 'eu preencho o campo senha com {string}' do |password|
+    fill_in 'password', :with => password
 end
 
 Quando 'eu clico no botão entrar' do

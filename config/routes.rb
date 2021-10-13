@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :coaches
   resources :coach_details, only:[:show]
 
-  get 'whoami/index'
   # Funcionalidade login/logout
   get     'login'       => 'sessions#forms'
   post    'login'       => 'sessions#create'
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
   # Funcionalidade para testar se estou ou não logado
   get     'whoami'      => 'whoami#index'
 
-  # Home
+  # Página pessoal do usuário cadastrado
   get     'me'          => 'personal#home'
 
   root 'rails/welcome#index'
