@@ -1,39 +1,47 @@
 #language: pt
 
+# Cria usuário com:
+#   username: TestUser
+#   password: TestPassword
+@criar_usuario_teste
+
 Funcionalidade: Login de usuário
     Como coach cadastrado do GameClass,
     Eu quero uma página de login com um botão entrar
     De modo que quando eu preencho os dados e clico
     Eu sou redirecionado para a minha página pessoal
 
-# Cenário: Eu tenho um botão login
-#    Dado que eu estou na página inicial
-#    Quando eu clico no botão de login
-#    Então eu deveria ser redirecionado para a página de login
+Cenário: Eu não estou logado se não fizer login!
+    Dado que eu não estou logado
+    Quando eu tento acessar minha área pessoal
+    Então eu devo ser redirecionado para a página de login
 
-Cenário: Já estou logado
+Cenário: A página de login só me redireciona quando já estou logado
     Dado que eu estou logado
-    Quando eu acesso a página de login
-    Então eu sou redirecionado para a página inicial
+    Quando eu tento acessar a página de login
+    Então eu devo ser redirecionado para a minha área pessoal
 
-Cenário: O login funciona
-    Dado que eu estou na página de login
-    # Falha de segurança manter um login válido com senha exposta assim. Precisamos ver o que fazer a respeito depois.
-    Quando eu preencho o campo usuário com "falha@de.segurança"
-    E eu preencho o campo senha com "%&hTu0mQ^Oox"
+Cenário: O login funciona e redireciona para a área pessoal
+    Dado que eu não estou logado
+    Quando eu tento acessar a página de login
+    E eu preencho o campo usuário com "TestUser"
+    E eu preencho o campo senha com "TestPassword"
     E eu clico no botão entrar
-    Então eu deveria ser redirecionado para a minha área pessoal
+    Então minha sessão pessoal deve ser iniciada
+    E eu devo ser redirecionado para a minha área pessoal
 
-Cenário: O login falha - e-mail não registrado
-    Dado que eu estou na página de login
-    Quando eu preencho o campo usuário com "email@errado.com"
-    E eu preencho o campo senha com "qualquer senha"
-    E eu clico no botão entrar
-    Então eu deveria ver a mensagem única de erro de login.
-
-Cenário: O login falha - e-mail não registrado
-    Dado que eu estou na página de login
-    Quando eu preencho o campo usuário com "falha@de.segurança"
+Cenário: O login falha - username inexiste
+    Dado que eu não estou logado
+    Quando eu tento acessar a página de login
+    E eu preencho o campo usuário com "user errado"
     E eu preencho o campo senha com "senha errada"
     E eu clico no botão entrar
-    Então eu deveria ver a mensagem única de erro de login.
+    Então eu devo ver a mensagem única de erro de login.
+
+Cenário: O login falha - senha errada
+    Dado que eu não estou logado
+    Quando eu tento acessar a página de login
+    E eu preencho o campo usuário com "TestUser"
+    E eu preencho o campo senha com "senha errada"
+    E eu clico no botão entrar
+    Então eu devo ver a mensagem única de erro de login.

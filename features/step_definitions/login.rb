@@ -3,21 +3,34 @@
 
 Dado "que eu estou na página de login" do
     visit 'login'
+    expect(current_path).to eq '/login'
 end
 
 Dado "que eu estou na página inicial" do
-    pending
+    pending 'Ainda não temos uma página inicial definida.'
 end
 
-# Não tenho certeza se está certo fazer isso
+Dado 'que eu não estou logado' do
+    page.driver.submit :delete, 'login', {}
+end
+
 Dado 'que eu estou logado' do
+    # Sinto que isso está meio gambiarra
     visit 'login'
-    fill_in 'username', :with => 'falha@de.segurança'
-    fill_in 'password', :with => '%&hTu0mQ^Oox'
+    fill_in 'username', :with => 'TestUser'
+    fill_in 'password', :with => 'TestPassword'
     click_on 'Entrar'
 end
 
 ###################### Quando
+
+Quando 'eu tento acessar a página de login' do
+    visit '/login'
+end
+
+Quando 'eu tento acessar minha área pessoal' do
+    visit '/me'
+end
 
 Quando "eu clico no botão de login" do
     pending
@@ -37,14 +50,22 @@ end
 
 ###################### Então
 
-Então "eu deveria ser redirecionado para a página de login" do
-    expect(current_path).to eq('login')
+Então "eu devo ser redirecionado para a página de login" do
+    expect(current_path).to eq '/login'
 end
 
-Então 'eu deveria ser redirecionado para a minha área pessoal' do
-    expect(page).to have_content("Área pessoal")
+Então 'eu devo ser redirecionado para a minha área pessoal' do
+    expect(current_path).to eq '/me'
 end
 
-Então 'eu deveria ver a mensagem única de erro de login.' do
-    expect(page).to have_content("Error")
+Então 'eu devo ver a mensagem única de erro de login.' do
+    expect(page).to have_content "Credenciais inválidas"
+end
+
+Então 'minha sessão pessoal deve ser iniciada' do
+    # Meio gambiarra isso
+    @temp = current_path
+    visit '/whoami'
+    expect(page).to have_content 'You are logged as'
+    visit @temp
 end
