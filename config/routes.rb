@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   get     'me'          => 'personal#home'
 
   root 'rails/welcome#index'
-  #root  'sessions#forms'
 end
