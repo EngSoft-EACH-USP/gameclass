@@ -1,6 +1,9 @@
 <h1>CoachDetails#show</h1>
 <p>Find me in app/views/coach_details/show.html.erb</p>
 
+<% if @coach == nil  %>
+<p>Coach not found</p>
+<% else %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,3 +27,4 @@
 </br>
 
 <%= link_to 'Voltar', coaches_path %>
+<% end %>

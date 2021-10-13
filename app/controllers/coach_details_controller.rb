@@ -1,5 +1,10 @@
 class CoachDetailsController < ApplicationController
   def show
-    @coach = Coach.find(params[:id])
-  end
+    begin
+      @coach = Coach.find(params[:id])
+
+    rescue ActiveRecord::RecordNotFound => e
+      false
+    end
+  end 
 end
