@@ -15,16 +15,16 @@
  */
 
  body{
-    background-color: #bbb;
-    font-size: 18px;
-    color: #300;
-    display: table-cell;
-    vertical-align: middle;
-    padding: 50px;
-    text-align: center;
-}
+     background-color: #bbb;
+     font-size: 18px;
+     color: #300;
+     display: table-cell;
+     vertical-align: middle;
+     padding: 50px;
+     text-align: center;
+ }
 
-input{
-    height: 25px;
-    font-size: 20px;
-}
+ input{
+     height: 25px;
+     font-size: 20px;
+ }
