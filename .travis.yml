@@ -8,6 +8,7 @@ dist: focal
 before_script:
   - nvm install --lts
   - nvm use --lts
+  - yarn add @rails/webpacker
   - bundle update --bundler
 
 script:
