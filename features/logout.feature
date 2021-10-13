@@ -1,4 +1,4 @@
-# language:pt
+#language: pt
 
 # Cria usuário com:
 #   username: TestUser
