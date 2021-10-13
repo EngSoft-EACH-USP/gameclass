@@ -1,8 +1,7 @@
-%h1 Personal#home
 
-%p Seja bem vindo
-%p
-    = session[:user]
+%h1 Home
+
+%p Seja bem vindo, #{@user.username}!
 
 = form_with url: 'login', method: 'delete', local: true do |form|
     = form.submit 'Sair'

@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
 			# Falha de segurança salvar a senha diretamente, mas é provisório
             if @user && @user.password == params[:password]
 				session[:user_id] = @user.id
-                session[:user] = @user
 				session[:logged] = true
 
                 redirect_to '/me'
