@@ -8,10 +8,10 @@ dist: focal
 before_script:
   - nvm install --lts
   - nvm use --lts
-  - RAILS_ENV=test bundle exec rails webpacker:compile
+  - bundle update --bundler
 
 script:
-  - bundle update --bundler
+  - RAILS_ENV=test bundle exec rails webpacker:compile
   - bundle exec rake db:migrate
   - bundle exec rspec spec
   - bundle exec cucumber
