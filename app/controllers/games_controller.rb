@@ -4,18 +4,22 @@ class GamesController < ApplicationController
         render :games
     end
 
-
-    '''def choose_game
-        
-        if game[:chosen]
-            games = ["lol", "plants vs zombies", "csgo"]
-            Games.find(params[:id])
-            redirect_to abre aspas /listar_coaches fecha aspas
+    '''def show
+        begin
+          @game = Game.find(params[:id])
+    
+        rescue ActiveRecord::RecordNotFound => e
+          false
         end
-        
-    end
-    '''
+    end'''
 
+   # def choose_game
+    #    render :coaches
+        # if game[:chosen]
+        #    games = ["lol", "plants vs zombies", "csgo"]
+        #   Games.find(params[:id])
+        #  redirect_to abre aspas /listar_coaches fecha aspas
+    #end    
 end
 
 
