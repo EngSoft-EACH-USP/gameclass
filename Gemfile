@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # Travis builder
 gem 'travis'
 gem 'rexml'
+gem 'haml'
 
 
 group :test do
@@ -43,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails' 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+  gem 'ffaker'
 end
 
 group :development do
