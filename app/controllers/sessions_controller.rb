@@ -1,6 +1,8 @@
 
 class SessionsController < ApplicationController
     
+    skip_before_action :verify_authenticity_token
+    
     def forms
         unless session[:logged]
         	render :forms
@@ -13,7 +15,7 @@ class SessionsController < ApplicationController
     def create
 		# Verifica se o usuário já não está logado
         unless session[:logged]
-            @user = User.find_by(username: params[:username])
+            @user = User.find_by username: params[:username]
 
 			# Falha de segurança salvar a senha diretamente, mas é provisório
             if @user && @user.password == params[:password]
