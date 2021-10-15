@@ -3,12 +3,12 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
 
       # Session
-      t.string :username
-      t.string :password
-      t.integer :kind
+      t.string :username # Required
+      t.string :password # Required
+      t.integer :kind # Required
 
       # Info
-      t.string :name
+      t.string :name # Required
       t.text :description
       t.string :whatsapp
 

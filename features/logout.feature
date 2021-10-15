@@ -1,15 +1,15 @@
+
 #language: pt
 
 # Cria usuário com:
 #   username: TestUser
 #   password: TestPassword
-@criar_usuario_teste
+@mock_user
 
 Funcionalidade: Log-out de usuário
-    Como coach cadastrado
-    Quero um botão log-out na minha página pessoal
-    De modo que qunado eu clico
-    Eu encerro minha sessão particular e sou redirecionado para a página de login.
+    Como usuário logado
+    Quero um botão Encerrar sessão
+    De modo que minha sessão não fique exposta
 
 Cenário: Logout funciona com sucesso
     Dado que eu estou logado

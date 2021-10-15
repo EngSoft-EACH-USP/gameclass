@@ -6,4 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create username: "admin", password: "admin"
+User.create(
+    username: "admin",
+    password: "admin",
+    name: 'Administradores dos GameClass',
+    kind: :admin
+)
+
+User.create(
+    username: "coach",
+    password: "coach",
+    name: 'Professor do GameClass',
+    kind: :coach
+)
+
+User.create(
+    username: "learner",
+    password: "learner",
+    name: 'Aprendiz do GameClass',
+    kind: :learner
+)

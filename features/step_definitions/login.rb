@@ -6,20 +6,24 @@ Dado "que eu estou na página de login" do
     expect(current_path).to eq '/login'
 end
 
-Dado "que eu estou na página inicial" do
-    pending 'Ainda não temos uma página inicial definida.'
-end
-
 Dado 'que eu não estou logado' do
     page.driver.submit :delete, 'login', {}
 end
 
 Dado 'que eu estou logado' do
-    # Sinto que isso está meio gambiarra
+
+    # Tenta fazer login
     visit 'login'
     fill_in 'username', :with => 'TestUser'
     fill_in 'password', :with => 'TestPassword'
     click_on 'Entrar'
+
+    # Garante que estará logado antes de executar a próxima linha
+    temp = current_path
+    visit '/whoami'
+    expect(page).to have_content 'You are logged as'
+    visit temp  # Volta para a página anterior. Isso pode ser arriscado.
+
 end
 
 ###################### Quando
