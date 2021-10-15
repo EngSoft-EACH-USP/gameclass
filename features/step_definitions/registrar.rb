@@ -3,12 +3,12 @@
 Before '@define_credentials' do
   @username = FFaker::Internet.user_name
   @password = FFaker::Internet.password
-  @name = FFaker::Name::first_name
+  @name = FFaker::Name::name
 end
 
 
 Dado('que eu já estou cadastrado') do
-  user = User.new name: @name, username: @username, password: @password
+  user = User.new name: @name, username: @username, password: @password, kind: :learner
   user.save
   user = User.find_by username: @username
   expect(user).to_not be_nil
@@ -29,7 +29,7 @@ Quando('eu clico em {string}') do |string|
 end
 
 Então('eu deveria ser redirecionado para a página de cadastro') do
-  expect(current_path).to eq '/signup'
+  expect(current_path).to eq '/register'
 end
 
 Quando('eu preencho o campo username') do
@@ -58,7 +58,7 @@ Quando('eu preencho diferentemente os campos senha') do
 end
 
 Quando('eu preencho o campo nome') do
-  fill_in 'password', with: @name
+  fill_in 'name', with: @name
 end
 
 Quando('eu tento fazer login') do
@@ -74,12 +74,17 @@ Então('eu deveria ver minha área pessoal') do
   expect(current_path).to eq '/me'
 end
 
+Então('eu deveria ser redirecionado para a página de login') do
+  expect(current_path).to eq '/login'
+end
+
 Então('eu deveria ver {string}') do |string|
   expect(page).to have_content string
 end
 
 Então('eu deveria ser cadastrado como aluno') do
+
   user = User.find_by username: @username
   expect(user).to_not be_nil
-  expect(user.kind).to eq(:learner)
+  expect(user.kind).to eq('learner')
 end

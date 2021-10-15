@@ -1,1 +1,1 @@
-cucumber features/registrar.feature --publish --publish-quiet
+cucumber features/registrar.feature

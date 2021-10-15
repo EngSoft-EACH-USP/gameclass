@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   post    'login'       => 'sessions#create'
   delete  'login'       => 'sessions#destroy'
 
+  # Funcionalidade registrar
+  get     'register'    => 'register#index'
+  post    'register'    => 'register#new'
+
   # Funcionalidade para testar se estou ou não logado
   get     'whoami'      => 'whoami#index'
 
