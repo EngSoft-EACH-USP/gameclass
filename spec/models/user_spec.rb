@@ -56,4 +56,15 @@ RSpec.describe User, type: :model do
     expect(invalid).to_not be_valid;
   end
 
+  it "Is invalid if kind is nil." do
+    invalid = User.new(
+      username: username,
+      password: password,
+      #kind: kind,
+      name: name,
+      description: description,
+      whatsapp: whatsapp)
+    expect(invalid).to_not be_valid;
+  end
+
 end
