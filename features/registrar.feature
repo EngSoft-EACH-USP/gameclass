@@ -1,6 +1,8 @@
 
 #language: pt
 
+@define_credentials
+
 Funcionalidade: Registrar
     Como usuário do Gameclass
     Quero uma página "registrar"
@@ -48,5 +50,7 @@ Cenário: Registrar falha: senhas não conferem
     E eu clico em "Cadastrar"
     Então eu deveria ver "As senhas não conferem."
 
-Cenário: Usuário já cadastrado
+Cenário: Username indisponível
     Dado que eu já estou cadastrado
+    Quando eu tento me cadastrar
+    Então eu deveria ver "username indisponível"

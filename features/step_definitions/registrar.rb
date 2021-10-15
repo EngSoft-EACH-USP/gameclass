@@ -36,13 +36,22 @@ Quando('eu preencho o campo username') do
   fill_in 'username', with: @username
 end
 
+Quando('eu tento me cadastrar') do
+  visit '/register'
+  fill_in 'name', with: @name
+  fill_in 'username', with: @username
+  fill_in 'password', with: @password
+  fill_in 'check_password', with: @password
+  click_on 'Cadastrar'
+end
+
 Quando('eu preencho os campos senha') do
   fill_in 'password', with: @password
   fill_in 'check_password', with: @password
 end
 
 Quando('eu preencho diferentemente os campos senha') do
-  fill_in 'password', with: 'o giuseppe sempre comete erros de digitação'
+  fill_in 'password', with: @password
   fill_in 'check_password', with: 'o giuspepe sempre comete erros de digitação'
   # Sim, eu cometo um a cada duas linhas.
   # 90% dos meus bugs são por isso
