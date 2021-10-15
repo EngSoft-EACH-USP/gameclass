@@ -1,7 +1,7 @@
 
 %h1 Home
 
-%p Seja bem vindo, #{@user.username}!
+%p Seja bem vindo, #{@user.name}!
 
 = form_with url: 'login', method: 'delete', local: true do |form|
     = form.submit 'Sair'
