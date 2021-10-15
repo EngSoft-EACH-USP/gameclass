@@ -19,7 +19,7 @@ Cenário: Registrar funciona perfeitamente
     E eu preencho os campos senha
     E eu preencho o campo nome
     E eu clico em "Cadastrar"
-    Então eu deveria ser cadastrado no sistema
+    Então eu deveria ser cadastrado como aluno
 
 Cenário: Registrar falha: username ausente
     Dado que eu estou na página de cadastro
@@ -53,4 +53,4 @@ Cenário: Registrar falha: senhas não conferem
 Cenário: Username indisponível
     Dado que eu já estou cadastrado
     Quando eu tento me cadastrar
-    Então eu deveria ver "username indisponível"
+    Então eu deveria ver "Nome de usuário indisponível"

@@ -78,7 +78,8 @@ Então('eu deveria ver {string}') do |string|
   expect(page).to have_content string
 end
 
-Então('eu deveria ser cadastrado no sistema') do
+Então('eu deveria ser cadastrado como aluno') do
   user = User.find_by username: @username
   expect(user).to_not be_nil
+  expect(user.kind).to eq(:learner)
 end
