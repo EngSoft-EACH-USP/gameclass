@@ -17,8 +17,7 @@ Cenário: Registrar funciona perfeitamente
     E eu preencho os campos senha
     E eu preencho o campo nome
     E eu clico em "Cadastrar"
-    E eu tento fazer login
-    Então eu deveria ver minha área pessoal
+    Então eu deveria ser cadastrado no sistema
 
 Cenário: Registrar falha: username ausente
     Dado que eu estou na página de cadastro
@@ -48,3 +47,6 @@ Cenário: Registrar falha: senhas não conferem
     E eu preencho o campo nome
     E eu clico em "Cadastrar"
     Então eu deveria ver "As senhas não conferem."
+
+Cenário: Usuário já cadastrado
+    Dado que eu já estou cadastrado

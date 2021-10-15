@@ -1,4 +1,19 @@
 
+# Define as credenciais que o usuário usaria antes de começar os steps
+Before '@define_credentials' do
+  @username = FFaker::Internet.user_name
+  @password = FFaker::Internet.password
+  @name = FFaker::Name::first_name
+end
+
+
+Dado('que eu já estou cadastrado') do
+  user = User.new name: @name, username: @username, password: @password
+  user.save
+  user = User.find_by username: @username
+  expect(user).to_not be_nil
+end
+
 Dado('que estou na página de login') do
   visit '/login'
   expect(current_path).to eq '/login'
@@ -18,12 +33,10 @@ Então('eu deveria ser redirecionado para a página de cadastro') do
 end
 
 Quando('eu preencho o campo username') do
-  @username = FFaker::Internet.user_name
   fill_in 'username', with: @username
 end
 
 Quando('eu preencho os campos senha') do
-  @password = FFaker::Internet.password
   fill_in 'password', with: @password
   fill_in 'check_password', with: @password
 end
@@ -36,7 +49,6 @@ Quando('eu preencho diferentemente os campos senha') do
 end
 
 Quando('eu preencho o campo nome') do
-  @name = FFaker::Name::first_name
   fill_in 'password', with: @name
 end
 
@@ -55,4 +67,9 @@ end
 
 Então('eu deveria ver {string}') do |string|
   expect(page).to have_content string
+end
+
+Então('eu deveria ser cadastrado no sistema') do
+  user = User.find_by username: @username
+  expect(user).to_not be_nil
 end
