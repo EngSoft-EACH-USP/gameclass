@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :coaches
   resources :coach_details, only:[:show]
+
+  # Funcionalidade de encontrar coaches
+  get     'coaches'     => 'coaches#index'
 
   # Funcionalidade login/logout
   get     'login'       => 'sessions#forms'

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "coach_details/show.html.erb", type: :view do
-  let(:coach) do
-    { name: 'Paulo Kim', description: 'Jogado de Lol', whatsapp: '11980770907' }
+  let(:user) do
+    { username: "Paulo Kim", kind: 1, name: 'paulo', password: 'paulo', description: "Jogado de Lol", whatsapp: '11980770907' }
   end
 
   it 'should render coach details page' do
-    assign(:coach, Coach.new(name: 'Paulo Kim', description: 'Jogado de Lol', whatsapp: '11980770907'))
+    assign(:user, User.new(username: "Paulo Kim", kind: 1, name: 'paulo', password: 'paulo', description: "Jogado de Lol", whatsapp: '11980770907'))
     render
 
     rendered.should =~ /CoachDetails#show/
