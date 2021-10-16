@@ -1,10 +1,11 @@
 
 class SessionsController < ApplicationController
-    
+
+    include SessionManager
     skip_before_action :verify_authenticity_token
     
     def forms
-        unless session[:logged]
+        unless isLogged?
         	render :forms
         # Se ele já estava logado, só redireciona para sua página pessoal
         else
@@ -14,14 +15,12 @@ class SessionsController < ApplicationController
 
     def create
 		# Verifica se o usuário já não está logado
-        unless session[:logged]
+        unless isLogged?
             @user = User.find_by username: params[:username]
 
 			# Falha de segurança salvar a senha diretamente, mas é provisório
             if @user && @user.password == params[:password]
-				session[:user_id] = @user.id
-				session[:logged] = true
-
+				login @user
                 redirect_to '/me'
             else
                 @login_failed = true
@@ -31,12 +30,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        if session[:logged]
-            session[:logged] = false
-            session[:user] = nil
-            session[:user_id] = nil
-        end
-
+        logout
         redirect_to '/'
     end
 end
