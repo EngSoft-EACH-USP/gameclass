@@ -13,14 +13,12 @@
   </thead>
 
   <tbody>
-    <% @coaches.each do |coach| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= coach.name %></td>
-        <td><%= coach.description %></td>
-        <td><%= coach.whatsapp %></td>
-        <td><%= link_to 'Show', coach_detail_path(coach) %></td>
-        <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
-        <td><%= link_to 'Destroy', coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.name %></td>
+        <td><%= user.description %></td>
+        <td><%= user.whatsapp %></td>
+        <td class='show'><%= link_to 'Show', coach_detail_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +26,3 @@
 
 <br>
 
-<%= link_to 'New Coach', new_coach_path %>
