@@ -7,14 +7,12 @@ class SessionsController < ApplicationController
     def forms
         unless isLogged?
         	render :forms
-        # Se ele já estava logado, só redireciona para sua página pessoal
         else
             redirect_to '/me'
         end
     end
 
     def create
-		# Verifica se o usuário já não está logado
         unless isLogged?
             @user = User.find_by username: params[:username]
 

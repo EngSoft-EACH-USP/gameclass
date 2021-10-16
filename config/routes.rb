@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   # Página pessoal do usuário cadastrado
   get     'me'          => 'personal#home'
 
-  root 'rails/welcome#index'
+  root 'root#index'
 end

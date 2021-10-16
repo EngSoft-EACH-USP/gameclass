@@ -26,7 +26,6 @@ gem 'travis'
 gem 'rexml'
 gem 'haml'
 
-
 group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not mandatory, but highly recommended

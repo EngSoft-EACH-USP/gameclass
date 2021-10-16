@@ -1,13 +1,11 @@
 
 = form_with url: 'login', local: true do |form|
-    %h2 Faça login
+    %h1 Faça login
     %p
         = form.label "Usuário"
-        %br/
         = form.text_field :username
     %p
         = form.label "Senha"
-        %br/
         = form.password_field :password
     - if @login_failed
         %h4 Credenciais inválidas. Tente de novo.

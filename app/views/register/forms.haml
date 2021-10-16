@@ -1,21 +1,17 @@
 
 = form_with url: 'register', local: true do |form|
-    %h2 Cadastre-se
+    %h1 Cadastre-se
     %p
         = form.label "Nome *"
-        %br/
         = form.text_field :name, value: @name
     %p
         = form.label "Nome de usuário *"
-        %br/
         = form.text_field :username, value: @username
     %p
         = form.label "Senha *"
-        %br/
         = form.password_field :password
     %p
         = form.label "Confirmação de senha *"
-        %br/
         = form.password_field :check_password
 
     - if @username_unavaliable
