@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   resources :coach_details, only:[:show]
 
@@ -19,5 +20,8 @@ Rails.application.routes.draw do
   # Página pessoal do usuário cadastrado
   get     'me'          => 'personal#home'
 
+  # Seção de jogos
+  get     '/games'      => 'games#show_games'
+  
   root 'root#index'
 end
