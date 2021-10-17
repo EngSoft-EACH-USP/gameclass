@@ -23,8 +23,8 @@ Cenário: A página de login só me redireciona quando já estou logado
 Cenário: O login funciona e redireciona para a área pessoal
     Dado que eu não estou logado
     Quando eu tento acessar a página de login
-    E eu preencho o campo usuário com "TestUser"
-    E eu preencho o campo senha com "TestPassword"
+    E eu preencho o campo usuário
+    E eu preencho o campo senha
     E eu clico no botão entrar
     Então minha sessão pessoal deve ser iniciada
     E eu devo ser redirecionado para a minha área pessoal

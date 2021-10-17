@@ -8,10 +8,7 @@ end
 
 
 Dado('que eu já estou cadastrado') do
-  user = User.new name: @name, username: @username, password: @password, kind: :learner
-  user.save
-  user = User.find_by username: @username
-  expect(user).to_not be_nil
+  User.create name: @name, username: @username, password: @password, kind: :learner
 end
 
 Dado('que estou na página de login') do

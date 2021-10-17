@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "coach_details/show.html.erb", type: :view do
   let(:user) do
-    { username: "Paulo Kim", kind: 1, name: 'paulo', password: 'paulo', description: "Jogado de Lol", whatsapp: '11980770907' }
+    return FactoryBot.build(:user)
   end
 
   it 'should render coach details page' do
-    assign(:user, User.new(username: "Paulo Kim", kind: 1, name: 'paulo', password: 'paulo', description: "Jogado de Lol", whatsapp: '11980770907'))
+    assign(:user, FactoryBot.build(:user))
     render
 
     rendered.should =~ /CoachDetails#show/

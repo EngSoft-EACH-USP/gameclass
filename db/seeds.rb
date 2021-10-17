@@ -10,29 +10,26 @@ User.create(
     username: "admin",
     password: "admin",
     name: 'Administradores dos GameClass',
-    kind: :admin,
-    whatsapp: 11980770907
+    kind: :admin
 )
 
 User.create(
     username: "coach",
     password: "coach",
     name: 'Professor do GameClass',
-    kind: :coach,
-    whatsapp: 11980770907
+    kind: :coach
 )
 
 User.create(
     username: "learner",
     password: "learner",
     name: 'Aprendiz do GameClass',
-    kind: :learner,
-    whatsapp: 11980770907
+    kind: :learner
 )
 
 Coach.create(
     user_id: 2,
     game: 'lol',
-    description: 'Professor a mais de 10 anos de lol, challenger',
+    description: 'Professor há mais de 10 anos de lol, challenger',
     whatsapp: 11980770907
 )

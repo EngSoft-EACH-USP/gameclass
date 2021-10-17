@@ -9,8 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
 
       # Info
       t.string :name # Required
-      t.text :description
-      t.string :whatsapp
 
       t.timestamps
     end

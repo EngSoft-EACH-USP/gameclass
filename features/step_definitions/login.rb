@@ -14,8 +14,8 @@ Dado 'que eu estou logado' do
 
     # Tenta fazer login
     visit 'login'
-    fill_in 'username', :with => 'TestUser'
-    fill_in 'password', :with => 'TestPassword'
+    fill_in 'username', :with => @username
+    fill_in 'password', :with => @password
     click_on 'Entrar'
 
     # Garante que estará logado antes de executar a próxima linha
@@ -38,6 +38,14 @@ end
 
 Quando "eu clico no botão de login" do
     pending
+end
+
+Quando 'eu preencho o campo usuário' do
+    fill_in 'username', :with => @username
+end
+
+Quando 'eu preencho o campo senha' do
+    fill_in 'password', :with => @password
 end
 
 Quando 'eu preencho o campo usuário com {string}' do |username|

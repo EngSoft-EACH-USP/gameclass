@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2021_10_17_175201) do
     t.string "password"
     t.integer "kind"
     t.string "name"
-    t.text "description"
-    t.string "whatsapp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
