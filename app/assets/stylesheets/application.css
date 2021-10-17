@@ -14,17 +14,59 @@
  *= require_self
  */
 
- body{
-     background-color: #bbb;
-     font-size: 18px;
-     color: #300;
-     display: table-cell;
-     vertical-align: middle;
-     padding: 50px;
-     text-align: center;
- }
+body{
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: slight;
+    color: #444;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 50px;
+    text-align: center;
+}
+
+input, textarea{
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: light;
+    color: #5f1010;
+    border-width: 1px;
+    border-color: #aaa;
+    border-style: solid;
+    width: 300px;
+    box-shadow: 0px 0px 5px 0px #00000020;
+    margin: 5px;
+    padding: 0px;
+}
 
  input{
-     height: 25px;
-     font-size: 20px;
- }
+    height: 25px;
+    text-align: center;
+    padding: 2px
+}
+
+input[type=submit]{
+    width: 150px;
+    height: 30px;
+    background-color: #e4a3a3;
+}
+
+input[type=submit]:hover{
+    width: 150px;
+    height: 30px;
+    background-color: #d48181;
+}
+
+textarea{
+   padding: 2px
+}
+
+label{
+    font-size: 15px;
+    font-family: sbold;
+}
+
+h1{
+    font-family: bold;
+    color: #5f1010;
+}

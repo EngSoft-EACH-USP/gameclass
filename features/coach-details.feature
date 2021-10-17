@@ -1,6 +1,6 @@
 #language: pt
 
-@coach_mock
+@mock_coach
 
 Funcionalidade: Pagina de detalhamento do coach
     Como usuario cadastrado do GameClass,

@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Whatsapp</th>
+      <th>Game</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,10 @@
   <tbody>
     <% @coaches.each do |coach| %>
       <tr>
-        <td><%= coach.name %></td>
+        <td><%= coach.user.name %></td>
         <td><%= coach.description %></td>
-        <td><%= coach.whatsapp %></td>
-        <td><%= link_to 'Show', coach_detail_path(coach) %></td>
-        <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
-        <td><%= link_to 'Destroy', coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= coach.game %></td>
+        <td class='show'><%= link_to 'Show', coach_detail_path(coach) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +26,3 @@
 
 <br>
 
-<%= link_to 'New Coach', new_coach_path %>

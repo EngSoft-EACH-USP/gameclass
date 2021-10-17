@@ -1,0 +1,28 @@
+
+= form_with url: 'register', local: true do |form|
+    %h1 Cadastre-se
+    %p
+        = form.label "Nome *"
+        = form.text_field :name, value: @name
+    %p
+        = form.label "Nome de usuário *"
+        = form.text_field :username, value: @username
+    %p
+        = form.label "Senha *"
+        = form.password_field :password
+    %p
+        = form.label "Confirmação de senha *"
+        = form.password_field :check_password
+
+    - if @username_unavaliable
+        %h4 Nome de usuário indisponível.
+
+    - if @missing_field
+        %h4 Preencha todos os campos obrigatórios.
+
+    - if @different_passwords
+        %h4 As senhas não conferem.
+    %p
+        = form.submit 'Cadastrar'
+
+= link_to 'Login', '/login'

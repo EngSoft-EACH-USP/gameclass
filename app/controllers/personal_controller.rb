@@ -1,9 +1,11 @@
 
 class PersonalController < ApplicationController
 
+	include SessionManager
+
 	def home
-		if session[:logged]
-			@user = User.find_by(id: session[:user_id])
+		if isLogged?
+			@user = current_user
 			render :home
 		else
 			redirect_to '/login'

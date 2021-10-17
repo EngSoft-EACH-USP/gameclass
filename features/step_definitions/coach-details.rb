@@ -1,8 +1,3 @@
-Before('@coach_mock') do
-  @coach = Coach.new(name: "Paulo Kim", description: "Jogado de Lol", whatsapp: '11980770907')
-  @coach.save
-end
-
 ###################### Dado
 
 Dado "que estou na pagina de listagem de coaches" do
@@ -16,7 +11,7 @@ end
 ###################### Quando
 
 Quando "eu clico em um coach" do
-  click_link 'Show'
+  find(".show", match: :first).click_link
 end
 
 Quando 'eu clico no botao de voltar' do
