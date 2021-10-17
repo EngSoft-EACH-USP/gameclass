@@ -1,27 +1,27 @@
 <h1>CoachDetails#show</h1>
 <p>Find me in app/views/coach_details/show.html.erb</p>
 
-<% if @user == nil  %>
+<% if @coach == nil  %>
 <p>Coach not found</p>
 <% else %>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= @coach.user.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @user.description %>
+  <%= @coach.description %>
 </p>
 
 <p>
   <strong>Whatsapp:</strong>
-  <%= @user.whatsapp %>
+  <%= @coach.whatsapp %>
 </p>
 
-<%= link_to 'Agendar aula', "https://api.whatsapp.com/send?phone=#{@user.whatsapp}&text=Gostaria de uma aula porfavor"%> 
+<%= link_to 'Agendar aula', "https://api.whatsapp.com/send?phone=#{@coach.whatsapp}&text=Gostaria de uma aula porfavor"%> 
 
 </br>
 </br>

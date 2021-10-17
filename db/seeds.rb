@@ -29,3 +29,10 @@ User.create(
     kind: :learner,
     whatsapp: 11980770907
 )
+
+Coach.create(
+    user_id: 2,
+    game: 'lol',
+    description: 'Professor a mais de 10 anos de lol, challenger',
+    whatsapp: 11980770907
+)
