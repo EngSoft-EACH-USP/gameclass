@@ -22,7 +22,7 @@ class RegisterController < ApplicationController
       render :forms
 
     elsif User.find_by(username: @username)
-      @username_unavaliable = true
+      @username_unavailable = true
       render :forms
 
     else
