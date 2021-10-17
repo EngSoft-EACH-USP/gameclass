@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'travis'
 gem 'rexml'
 gem 'haml'
-gem 'coveralls', require: false
+gem 'coveralls_reborn', '~> 0.23.0', require: false
 
 group :test do
   gem 'cucumber-rails', require: false
