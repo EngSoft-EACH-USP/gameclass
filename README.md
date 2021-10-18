@@ -23,4 +23,3 @@ O grupo escolheu criar um sistema para conectar jogadores competitivos a jogador
 10724222 Thais Lasso
 
 10875965 Vinicius Mariano Bispo
-
