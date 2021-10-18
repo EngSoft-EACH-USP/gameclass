@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe 'app/helpers/sessions_helper.rb', type: :helper do
-    include SessionManager
+    include SessionHelper
     
     it 'tells whether a session is up or down' do
         session[:logged] = true
@@ -40,7 +40,7 @@ RSpec.describe 'app/helpers/sessions_helper.rb', type: :helper do
 
     it 'logs a user' do
         user = User.new name: FFaker::Name.name, username: FFaker::Internet.user_name, password: FFaker::Internet.password, kind: :admin, id: 12345
-        login user
+        connect user
         expect(session[:logged]).to eq true
         expect(session[:user_id]).to eq 12345
     end
@@ -48,7 +48,7 @@ RSpec.describe 'app/helpers/sessions_helper.rb', type: :helper do
     it 'logs out' do
         session[:logged] = true
         session[:user_id] = 123456
-        logout
+        disconnect_user
         expect(session[:logged]).to eq false
         expect(session[:user_id]).to be_nil
     end

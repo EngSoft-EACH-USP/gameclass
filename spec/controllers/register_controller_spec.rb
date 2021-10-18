@@ -20,14 +20,14 @@ RSpec.describe RegisterController, type: :controller do
   end
 
   it 'works if when is present' do
-    post :new, params: @params
+    post :register, params: @params
     expect(retrieved_user).to_not be_nil
     expect(response).to redirect_to '/login'
   end
 
   it 'fails if passwords are different' do
     @params[:check_password] += '.'
-    post :new, params: @params
+    post :register, params: @params
     expect(retrieved_user).to be_nil
     expect(assigns :different_passwords).to be_truthy
     expect(response).to render_template :forms
@@ -35,7 +35,7 @@ RSpec.describe RegisterController, type: :controller do
 
   it 'fails if username is already being used' do
     @user.save
-    post :new, params: @params
+    post :register, params: @params
     expect(assigns :username_unavailable).to be_truthy
     expect(response).to render_template :forms
   end
@@ -54,7 +54,7 @@ RSpec.describe RegisterController, type: :controller do
     end
 
     after :each do
-      post :new, params: @params
+      post :register, params: @params
       expect(retrieved_user).to be_nil
       expect(response).to render_template :forms
       expect(assigns :username).to eq @params[:username]
