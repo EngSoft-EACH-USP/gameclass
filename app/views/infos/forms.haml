@@ -1,0 +1,26 @@
+
+= form_with url: info_path(@user), method: 'patch', local: true do |form|
+    %h1 Editar os dados
+    %p
+        = form.label "Nome"
+        = form.text_field :name, value: @name
+    %p
+        = form.label "Nome de usuário"
+        = form.text_field :username, value: @username
+    %p
+        = form.label "Senha"
+        = form.password_field :password
+    %p
+        = form.label "Confirmacao de senha"
+        = form.password_field :check_password
+
+    - if @username_unavaliable
+        %h4 Nome de usuário indisponível.
+
+    - if @different_passwords
+        %h4 As senhas não conferem.
+
+    %p
+        = form.submit 'Editar'
+
+= link_to 'Me', '/me'

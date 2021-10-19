@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post    'login'       => 'session#login'
   delete  'login'       => 'session#logout'
 
+  # Funcionalidade para editar usuario
+  resources :infos, only:[:show, :update]
+  
   # Funcionalidade registrar
   get     'register'    => 'register#forms'
   post    'register'    => 'register#register'
