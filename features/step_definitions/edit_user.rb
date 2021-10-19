@@ -1,9 +1,3 @@
-Before '@edit_user_credentials' do
-  @username = FFaker::Internet.user_name
-  @password = FFaker::Internet.password
-  @name = FFaker::Name::name
-end
-
 Dado('que eu estou na página de edição sem estar logado') do
   visit '/infos/1'
 end
@@ -14,20 +8,20 @@ end
 
 Dado('que eu estou na página de edição logado') do
   visit 'login'
-  fill_in 'username', :with => 'TestUser'
-  fill_in 'password', :with => 'TestPassword'
+  fill_in 'username', :with => @username
+  fill_in 'password', :with => @password
   click_on 'Entrar'
   
   visit '/infos/1'
 end
 
-Quando('preencho o campo username') do
-  fill_in 'username', with: @username
+Quando('preencho o campo username que nao existe') do
+  fill_in 'username', with: 'Novo'
   click_on 'Editar'
 end
 
 Quando('preencho o campo username com um username que existe') do
-  fill_in 'username', with: 'TestUser'
+  fill_in 'username', with: @username
   click_on 'Editar'
 end
 

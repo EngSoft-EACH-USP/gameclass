@@ -1,7 +1,7 @@
 
 class InfosController < ApplicationController
   
-	include SessionManager
+  include SessionHelper
   
   def show
     if isLogged?

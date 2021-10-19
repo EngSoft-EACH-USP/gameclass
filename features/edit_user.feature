@@ -1,7 +1,6 @@
 #language: pt
 
 @mock_user
-@edit_user_credentials
 
 Funcionalidade: Pagina de edição de usuario
     Como usuario cadastrado do GameClass,
@@ -14,7 +13,7 @@ Cenário: Redirecionado por nao estar logado
 
 Cenário: Editar apenas o username funciona perfeitamente
     Dado que eu estou na página de edição logado
-    Quando preencho o campo username
+    Quando preencho o campo username que nao existe
     Então era para eu ser redirecionado para a página de me
 
 Cenário: Registrar falha: username existente
