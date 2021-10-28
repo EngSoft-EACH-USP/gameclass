@@ -3,11 +3,11 @@ class RegisterController < ApplicationController
     
   skip_before_action :verify_authenticity_token
 
-  def index
+  def forms
     render :forms
   end
 
-  def new
+  def register
     # Esses dois campos são de instância para poderem ser acessados de volta na view.
     @username = params[:username]
     @name = params[:name]
@@ -22,7 +22,7 @@ class RegisterController < ApplicationController
       render :forms
 
     elsif User.find_by(username: @username)
-      @username_unavaliable = true
+      @username_unavailable = true
       render :forms
 
     else

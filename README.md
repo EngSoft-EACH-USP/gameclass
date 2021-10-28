@@ -1,4 +1,4 @@
-# GameClass
+# GameClass 
 
 [![Build Status](https://app.travis-ci.com/ThaisLasso/gameclass.svg?branch=main)](https://app.travis-ci.com/ThaisLasso/gameclass) [![Maintainability](https://api.codeclimate.com/v1/badges/d1ceeea6202e87582686/maintainability)](https://codeclimate.com/github/ThaisLasso/esi-2021/maintainability) [![Coverage Status](https://coveralls.io/repos/github/ThaisLasso/gameclass/badge.svg?branch=main)](https://coveralls.io/github/ThaisLasso/gameclass?branch=main)
 
@@ -12,6 +12,7 @@ Este é o trabalho semestral para a matéria ACH2006 - Engenharia de Sistemas de
 
 O grupo escolheu criar um sistema para conectar jogadores competitivos a jogadores experientes que podem mentorá-los em sua jogabilidade.
 
+
 ## Integrantes
 
 10724312 Gabriel André Melo de Oliveira Silva
@@ -23,4 +24,3 @@ O grupo escolheu criar um sistema para conectar jogadores competitivos a jogador
 10724222 Thais Lasso
 
 10875965 Vinicius Mariano Bispo
-

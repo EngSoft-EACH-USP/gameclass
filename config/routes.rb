@@ -6,13 +6,16 @@ Rails.application.routes.draw do
   get     'coaches'     => 'coaches#index'
 
   # Funcionalidade login/logout
-  get     'login'       => 'sessions#forms'
-  post    'login'       => 'sessions#create'
-  delete  'login'       => 'sessions#destroy'
+  get     'login'       => 'session#forms'
+  post    'login'       => 'session#login'
+  delete  'login'       => 'session#logout'
 
+  # Funcionalidade para editar usuario
+  resources :infos, only:[:show, :update]
+  
   # Funcionalidade registrar
-  get     'register'    => 'register#index'
-  post    'register'    => 'register#new'
+  get     'register'    => 'register#forms'
+  post    'register'    => 'register#register'
 
   # Funcionalidade para testar se estou ou não logado
   get     'whoami'      => 'whoami#index'

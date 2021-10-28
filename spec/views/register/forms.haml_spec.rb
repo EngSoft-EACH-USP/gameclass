@@ -16,7 +16,7 @@ RSpec.describe "register/forms.haml", type: :view do
     end
 
     it 'shows a unavaliable username message when requested' do
-        @username_unavaliable = true
+        @username_unavailable = true
         render
         rendered.should =~ /Nome de usuário indisponível./
     end

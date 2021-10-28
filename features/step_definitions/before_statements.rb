@@ -3,6 +3,7 @@ Before '@mock_user' do
     user = FactoryBot::create :user
     @username = user.username
     @password = user.password
+    @name = user.name
 end
 
 Before '@mock_coach' do

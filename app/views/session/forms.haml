@@ -1,0 +1,14 @@
+
+= form_with url: 'login', local: true do |form|
+    %h1 Faça login
+    %p
+        = form.label "Usuário"
+        = form.text_field :username
+    %p
+        = form.label "Senha"
+        = form.password_field :password
+    - if @login_failed
+        %h4 Credenciais inválidas. Tente de novo.
+    %p
+        = form.submit 'Entrar'
+= link_to 'Cadastrar', '/register'

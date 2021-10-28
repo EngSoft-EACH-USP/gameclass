@@ -1,7 +1,7 @@
 
 class PersonalController < ApplicationController
 
-	include SessionManager
+	include SessionHelper
 
 	def home
 		if isLogged?
