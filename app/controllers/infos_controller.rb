@@ -28,8 +28,8 @@ class InfosController < ApplicationController
         render :forms
 
       elsif User.find_by(username: @username)
-          @username_unavaliable = true
-          render :forms
+        @username_unavaliable = true
+        render :forms
 
       else
         if @password != ''

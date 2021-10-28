@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   delete  'login'       => 'session#logout'
 
   # Funcionalidade para editar usuario
-  resources :infos, only:[:show, :update]
+  get     'infos/:id'   => 'infos#show', as: 'info'
+  patch   'infos/:id'   => 'infos#update'
   
   # Funcionalidade registrar
   get     'register'    => 'register#forms'
