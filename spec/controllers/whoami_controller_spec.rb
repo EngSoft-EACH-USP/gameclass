@@ -5,7 +5,7 @@ RSpec.describe WhoamiController, type: :controller do
   context 'when logged' do
     before do
       @user = build :user
-      controller.stub(:isLogged?).and_return true
+      controller.stub(:is_logged?).and_return true
       controller.stub(:current_user).and_return @user
     end
 
@@ -17,7 +17,7 @@ RSpec.describe WhoamiController, type: :controller do
 
   context 'when not logged' do
     before do
-      controller.stub(:isLogged?).and_return false
+      controller.stub(:is_logged?).and_return false
       controller.stub(:current_user).and_return nil
     end
 

@@ -4,7 +4,7 @@ class InfosController < ApplicationController
   include SessionHelper
   
   def show
-    if isLogged?
+    if is_logged?
       @user = User.find(params[:id])
       @username = @user.username
       @name = @user.name
