@@ -9,7 +9,7 @@ RSpec.describe InfosController, type: :controller do
 
   context 'when logged' do
     before do
-      controller.stub(:isLogged?).and_return true
+      controller.stub(:is_logged?).and_return true
     end
 
     it 'render edit page' do
@@ -21,7 +21,7 @@ RSpec.describe InfosController, type: :controller do
 
   context 'when not logged' do
     before do
-      controller.stub(:isLogged?).and_return false
+      controller.stub(:is_logged?).and_return false
     end
 
     it 'redirects to /login' do

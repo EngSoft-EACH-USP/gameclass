@@ -18,7 +18,7 @@ RSpec.describe SessionController, type: :controller do
 
     describe "#forms" do
       it 'redirects to /me'do
-        controller.stub(:isLogged?).and_return true
+        controller.stub(:is_logged?).and_return true
         get :forms
         expect(response).to redirect_to :me
       end
@@ -43,7 +43,7 @@ RSpec.describe SessionController, type: :controller do
         delete :logout
         expect(response).to redirect_to '/'
         expect(current_user).to eq nil
-        expect(isLogged?).to eq false
+        expect(is_logged?).to eq false
       end
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe SessionController, type: :controller do
       it 'works when the world is perfect' do
         post :login, params: @params
         expect(response).to redirect_to '/me'
-        expect(isLogged?).to be_truthy
+        expect(is_logged?).to be_truthy
         expect(current_user).to eq @user
       end
 
@@ -68,7 +68,7 @@ RSpec.describe SessionController, type: :controller do
         @params[:username] += '.'
         post :login, params: @params
         expect(response).to render_template :forms
-        expect(isLogged?).to be_falsey
+        expect(is_logged?).to be_falsey
         expect(assigns :login_failed).to be_truthy
       end
 
@@ -76,7 +76,7 @@ RSpec.describe SessionController, type: :controller do
         @params[:password] += '.'
         post :login, params: @params
         expect(response).to render_template :forms
-        expect(isLogged?).to be_falsey
+        expect(is_logged?).to be_falsey
         expect(assigns :login_failed).to be_truthy
       end
     end
@@ -85,7 +85,7 @@ RSpec.describe SessionController, type: :controller do
       it 'cant do anything =D' do
         delete :logout
         expect(response).to redirect_to '/'
-        expect(isLogged?).to eq false
+        expect(is_logged?).to eq false
         expect(current_user).to eq nil
       end
     end
