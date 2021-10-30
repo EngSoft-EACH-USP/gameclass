@@ -4,61 +4,80 @@ require "rails_helper"
 RSpec.describe AffiliateController do
   include SessionHelper
 
-  context "not logged" do
-    it "#index returns 401" do
-      controller.stub(:is_logged?).and_return false
-      controller.stub(:current_user).and_return nil
-      get :index
+  def login_as kind
+    @user = create :user, kind: kind
+    connect @user
+  end
+
+  def logout
+    disconnect_user
+  end
+
+  # Response pode ser :save, :unauth ou :forbidden
+  def post_and_expect(expected)
+    description = FFaker::LoremBR.sentence 50
+    previous_count = AffiliateRequest.count
+
+    # Envia a solicitação
+    post :send_request, params: { description: description }
+
+    case expected
+    # Espera que ele salve a solicitação
+    when :save
+      req = AffiliateRequest.find_by user: @user
+      expect(req.description).to eq description
+      expect(AffiliateRequest.count).to eq(previous_count + 1)
+
+    # Espera que que ele receba 401 como resposta
+    when :unauth
+      expect(AffiliateRequest.count).to eq previous_count
       expect(response).to have_http_status 401
-    end
 
-    it "#show returns 401" do
-      controller.stub(:is_logged?).and_return false
-      controller.stub(:current_user).and_return nil
-      get :show
-      expect(response).to have_http_status 401
-    end
-
-    it "#send_request does not register the request and return 401" do
-      controller.stub(:is_logged?).and_return false
-      controller.stub(:current_user).and_return nil
-
-      count = AffiliateRequest.count
-
-      post :send_request, params: { description: "Description" }
-
-      expect(AffiliateRequest.count).to eq count
-      expect(response).to have_http_status 401
+    # Espera que que ele receba 403 como resposta
+    when :forbidden
+      expect(AffiliateRequest.count).to eq previous_count
+      expect(response).to have_http_status 403
+    else
+      raise "Erro nos testes: o tipo de resosta \"#{response}\" não é válido."
     end
   end
 
   context "logged as learner" do
+    before :each do
+      login_as :learner
+    end
+
     it "#index renders index" do
-      user = build :user, kind: :learner
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
       get :index
-      expect(response).to render_template :index
+      expect(response).to render_template :index # Isso pode não deixar claro que o pedido foi enviado.
     end
 
     it "#send_request registers the request" do
-      # Sei que isso é uma má prática, mas vou mudar depois
-      user = create :user, kind: :learner
-      connect user
+      post_and_expect :save
+    end
+  end
 
-      description = FFaker::LoremBR.sentence 50
-      post :send_request, params: { description: description }
+  context "unauthenticated" do
+    before :each do
+      logout
+    end
 
-      req = AffiliateRequest.find_by user: user
-      expect(req.description).to eq description
+    it "#index returns 401" do
+      get :index
+      expect(response).to have_http_status 401
+    end
+
+    it "#send_request does not register the request and return 401" do
+      post_and_expect :unauth
     end
   end
 
   context "logged as coach" do
+    before :each do
+      login_as :coach
+    end
+
     it "#index returns 403 forbidden" do
-      user = build :user, kind: :coach
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
       get :index
       expect(response).to have_http_status 403
     end
@@ -72,39 +91,22 @@ RSpec.describe AffiliateController do
     end
 
     it "#send_request reeturns 403 forbidden" do
-      user = build :user, kind: :coach
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
-
-      count = AffiliateRequest.count
-
-      post :send_request, params: { description: "Description" }
-
-      expect(AffiliateRequest.count).to eq count
-      expect(response).to have_http_status 403
+      post_and_expect :forbidden
     end
   end
 
   context "logged as admin" do
+    before :each do
+      login_as :admin
+    end
+
     it "#index returns 403 forbidden" do
-      user = build :user, kind: :admin
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
       get :index
       expect(response).to have_http_status 403
     end
 
     it "#send_request reeturns 403 forbidden" do
-      user = build :user, kind: :admin
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
-
-      count = AffiliateRequest.count
-
-      post :send_request, params: { description: "Description" }
-
-      expect(AffiliateRequest.count).to eq count
-      expect(response).to have_http_status 403
+      post_and_expect :forbidden
     end
 
     it "#show get all affiliates" do
