@@ -22,4 +22,14 @@ class AffiliateController < ApplicationController
       redirect_to '/me'
     end
   end
+
+  def show
+    if !is_logged?
+      head :unauthorized
+    elsif current_user.kind != 'admin'
+      head :forbidden
+    else
+      @affiliates = AffiliateRequest.all
+    end
+  end
 end

@@ -33,3 +33,9 @@ Coach.create(
     description: 'Professor há mais de 10 anos de lol, challenger',
     whatsapp: 11980770907
 )
+
+AffiliateRequest.create(
+    user_id: 3,
+    description: 'Sou muito bom no lol cara pfvr...',
+    status: :pending
+)

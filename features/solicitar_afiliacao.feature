@@ -33,4 +33,3 @@ Cenário: Sou o administrador
   Dado que eu estou logado como administrador
   Quando eu tento acessar a página de afiliação
   Então eu não deveria ver a página de afiliação
-
