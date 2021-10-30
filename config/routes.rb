@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   get     'me'          => 'personal#home'
 
   # Seção de jogos
-  get     '/games'      => 'games#show_games'
+  get     'games'      => 'games#show_games'
+
+  # Solicitar afiliação
+  get     'affiliate'  => 'affiliate#index'
+  post    'affiliate'  => 'affiliate#send_request'
   
   root 'root#index'
 end

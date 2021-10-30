@@ -26,32 +26,33 @@ Dado(/^que eu estou logado como ([^"]*)$/) do |arg|
   visit temp  # Volta para a página anterior. Isso pode ser arriscado.
 end
 
-When(/^eu tento acessar a página de afiliação$/) do
-  visit '/affiliate'
+Quando(/^eu tento acessar a página de afiliação$/) do
+  visit "/affiliate"
 end
 
-When(/^eu deveria ver um campo descrição$/) do
-  expect(page).to have_field tagname: "textarea"
+Quando(/^eu preencho o campo descrição com um texto$/) do
+  @text = FFaker::LoremBR.sentence 10
+  fill_in "description",with: @text
 end
 
-When(/^eu deveria ver um botão Enviar$/) do
-  expect(page).to have_selector :link_or_button, "Enviar"
-end
-
-When(/^eu preencho o campo descrição com um texto$/) do
-  @text = FFaker::LoremBR.sentences 10
-  fill_in description, @text
-end
-
-When(/^eu clico no botão Enviar$/) do
+Quando(/^eu clico no botão Enviar$/) do
   click_on "Enviar"
 end
 
-When(/^minha solicitação deveria ser registrada no sistema$/) do
-  pending "Precisamos definir o banco de dados."
+Então(/^eu deveria ver um campo descrição$/) do
+  expect(page).to have_field "description"
 end
 
-When(/^eu não deveria ver a página de afiliação$/) do
-  expect(page).to_not have_field tagname: "textarea"
+Então(/^eu deveria ver um botão Enviar$/) do
+  expect(page).to have_selector :link_or_button, "Enviar"
+end
+
+Então(/^minha solicitação deveria ser registrada no sistema$/) do
+  req = AffiliateRequest.find_by user: @user
+  expect(req.description).to eq @text
+end
+
+Então(/^eu não deveria ver a página de afiliação$/) do
+  expect(page).to_not have_field "description"
   expect(page).to_not have_selector :link_or_button, "Enviar"
 end
