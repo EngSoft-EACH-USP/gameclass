@@ -29,7 +29,22 @@ class AffiliateController < ApplicationController
     elsif current_user.kind != 'admin'
       head :forbidden
     else
-      @affiliates = AffiliateRequest.all
+      @affiliates = AffiliateRequest.where(status: :pending).all
+    end
+  end
+
+  def update
+    if !is_logged?
+      head :unauthorized
+    elsif current_user.kind != 'admin'
+      head :forbidden
+    else
+      path = request.path
+      new_status = path.include?('accept') ? :accepted : :rejected
+      @affiliate = AffiliateRequest.find(params[:id])
+      @affiliate.status = new_status
+      @affiliate.save
+      redirect_to admin_affiliate_path
     end
   end
 end

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Affiliates</h1>
-
+<% if @affiliates.length > 0  %>
 <table>
   <thead>
     <tr>
@@ -18,10 +18,14 @@
         <td><%= affiliate.user.name %></td>
         <td><%= affiliate.description %></td>
         <td><%= affiliate.status %></td>
+        <td class='accept'><%= link_to 'Aceitar', affiliate_accept_path(affiliate.id), method: :post %></td>
+        <td class='reject'><%= link_to 'Rejeitar', affiliate_reject_path(affiliate.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% else %>
+<p>Nao existem solicitacoes</p>
+<% end %>
