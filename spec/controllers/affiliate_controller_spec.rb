@@ -83,9 +83,6 @@ RSpec.describe AffiliateController do
     end
 
     it "#show returns 403 forbidden" do
-      user = build :user, kind: :coach
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
       get :show
       expect(response).to have_http_status 403
     end
@@ -98,6 +95,9 @@ RSpec.describe AffiliateController do
   context "logged as admin" do
     before :each do
       login_as :admin
+      @user = create :user, :kind => :learner
+      @affiliate = create :affiliate_request, :user_id => @user.id
+      @params = {:id => @affiliate.id}
     end
 
     it "#index returns 403 forbidden" do
@@ -110,11 +110,13 @@ RSpec.describe AffiliateController do
     end
 
     it "#show get all affiliates" do
-      user = build :user, kind: :admin
-      controller.stub(:is_logged?).and_return true
-      controller.stub(:current_user).and_return user
       get :show
       expect(response).to have_http_status 200
+    end
+
+    it "#update accept/reject affiliate_request" do
+      post :update, :params => @params
+      expect(response).to redirect_to '/admin/affiliate'
     end
   end
 end
