@@ -7,7 +7,7 @@ Quando('eu acesso minha área pessoal') do
 end
 
 Então('eu deveria ver a página de afiliação') do
-  expect(page).to have_current_path "/affiliate"
+  expect(page).to have_current_path /^\/affiliate/
 end
 
 Quando('eu clico no botão {string}') do |string|
