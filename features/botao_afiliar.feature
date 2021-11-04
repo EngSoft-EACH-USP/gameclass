@@ -8,10 +8,10 @@ Funcionalidade: Botão de solicitar afiliação
 Cenário: O botão existe
     Dado que eu estou logado como aluno
     Quando eu tento acessar minha área pessoal
-    Então eu deveria ver um botão "Solicitar Afiliação"
+    Então eu deveria ver um botão "Solicitar afiliação"
 
 Cenário: O botão me leva para a página de solicitar afiliação
     Dado que eu estou logado como aluno
     Quando eu acesso minha área pessoal
-    E eu clico no botão "Solicitar Afiliação"
+    E eu clico no botão "Solicitar afiliação"
     Então eu deveria ver a página de afiliação
