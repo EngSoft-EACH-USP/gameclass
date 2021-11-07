@@ -7,8 +7,8 @@ Before '@mock_user' do
 end
 
 Before '@mock_coach' do
-    user = FactoryBot::create :user, :id => -1
-    coach = FactoryBot::create :coach, :user_id => -1
+    user = FactoryBot::create :user, :id => 1
+    coach = FactoryBot::create :coach, :user_id => 1, :whatsapp => 11980770907
     coach.save
 end
 
