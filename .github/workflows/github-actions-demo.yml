@@ -25,7 +25,6 @@ jobs:
         run: |
           source /home/runner/.rvm/scripts/rvm
           yarn add @rails/webpacker
-          gem install bundler
 
       - name: Update bundlers
         shell: bash {0}
@@ -38,7 +37,7 @@ jobs:
         run: |
           source /home/runner/.rvm/scripts/rvm
           RAILS_ENV=test bundle exec rails webpacker:compile
-          RAILS_ENV=test bundle exec rake db:migrate
+          bundle exec rake db:migrate
 
       - name: Run tests
         shell: bash {0}
