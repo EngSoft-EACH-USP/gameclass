@@ -44,6 +44,11 @@ class AffiliateController < ApplicationController
       @affiliate = AffiliateRequest.find(params[:id])
       @affiliate.status = new_status
       @affiliate.save
+      if new_status == :accepted
+        @user = User.find_by(id: @affiliate.user_id)
+        @user.kind = :coach
+        @user.save
+      end
       redirect_to admin_affiliate_path
     end
   end

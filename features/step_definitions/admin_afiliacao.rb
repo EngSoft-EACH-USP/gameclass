@@ -49,6 +49,12 @@ Então ('eu deveria ver a página de solicitacoes') do
   expect(page).to have_content "Status"
 end
 
+Então ('eu nao deveria ver a solicitacao e ser redirecionado para a pagina de listagem e o usuario deveria ser atualizado para coach') do
+  @user = User.find_by(id: -10)
+  expect(@user.kind).to eq("coach")
+  expect(page).to have_current_path '/admin/affiliate'
+end
+
 Então ('eu nao deveria ver a solicitacao e ser redirecionado para a pagina de listagem') do
   expect(page).to have_current_path '/admin/affiliate'
 end
