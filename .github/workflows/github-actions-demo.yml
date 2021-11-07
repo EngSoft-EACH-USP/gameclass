@@ -14,12 +14,25 @@ jobs:
           gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
           curl -sSL https://get.rvm.io | bash
           source $HOME/.rvm/scripts/rvm
+          rvm install 3.0.1
+          rvm use 3.0.1
 
-      - run: rvm install 3.0.1
-      - run: rvm use 3.0.1
-      - run: yarn add @rails/webpacker
-      - run: bundle update --bundler
-      - run: RAILS_ENV=test bundle exec rails webpacker:compile
-      - run: bundle exec rake db:migrate
-      - run: bundle exec rspec spec
-      - run: bundle exec cucumber
+      - name: Install webpacker
+        shell: bash {0}
+        run: yarn add @rails/webpacker
+
+      - name: Update bundlers
+        shell: bash {0}
+        run: bundle update --bundler
+
+      - name: Setup webpacker and database
+        shell: bash {0}
+        run: |
+          RAILS_ENV=test bundle exec rails webpacker:compile
+          bundle exec rake db:migrate
+
+      - name: Run tests
+        shell: bash {0}
+        run: |
+          bundle exec rspec spec
+          bundle exec cucumber
