@@ -38,7 +38,8 @@ jobs:
         run: |
           source /home/runner/.rvm/scripts/rvm
           RAILS_ENV=test bundle exec rails webpacker:compile
-          bundle exec rake db:migrate
+          RAILS_ENV=test bundle exec rake db:migrate
+          RAILS_ENV=test bundle exec rake db:seed
 
       - name: Run tests
         shell: bash {0}
