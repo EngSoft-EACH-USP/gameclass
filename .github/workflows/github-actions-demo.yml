@@ -17,9 +17,11 @@ jobs:
           rvm install 3.0.1
           rvm use 3.0.1
 
-      - name: Install webpacker
+      - name: Install webpacker and bundler
         shell: bash {0}
-        run: yarn add @rails/webpacker
+        run: |
+          yarn add @rails/webpacker
+          gem install bundler
 
       - name: Update bundlers
         shell: bash {0}
