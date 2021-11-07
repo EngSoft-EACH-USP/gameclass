@@ -13,10 +13,10 @@ Before '@mock_coach' do
 end
 
 Before '@mock_affiliate_request' do
-    user = FactoryBot::create :user, :id => 10, :name => 'aceitado'
-    user = FactoryBot::create :user, :id => 20, :name => 'rejeitado'
-    affiliate_accept = FactoryBot::create :affiliate_request, :user_id => 10
-    affiliate_reject = FactoryBot::create :affiliate_request, :user_id => 20
+    user = FactoryBot::create :user, :id => 1, :name => 'aceitado'
+    user = FactoryBot::create :user, :id => 2, :name => 'rejeitado'
+    affiliate_accept = FactoryBot::create :affiliate_request, :user_id => 1
+    affiliate_reject = FactoryBot::create :affiliate_request, :user_id => 2
     affiliate_accept.save
     affiliate_reject.save
 end
