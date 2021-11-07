@@ -8,37 +8,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Remove default ruby
-        run: |
-          sudo apt remove ruby -y
-
       - name: Install rvm
         shell: bash {0}
         run: |
           gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
           curl -sSL https://get.rvm.io | bash
-          source ~/.rvm/scripts/rvm
+          source /home/runner/.rvm/scripts/rvm
           rvm install 3.0.1
           rvm use 3.0.1 -- default
 
       - name: Install webpacker and bundler
         shell: bash {0}
         run: |
+          source /home/runner/.rvm/scripts/rvm
           yarn add @rails/webpacker
           gem install bundler
 
       - name: Update bundlers
         shell: bash {0}
-        run: bundle update --bundler
+        run: |
+          source /home/runner/.rvm/scripts/rvm
+          bundle update --bundler
 
       - name: Setup webpacker and database
         shell: bash {0}
         run: |
+          source /home/runner/.rvm/scripts/rvm
           RAILS_ENV=test bundle exec rails webpacker:compile
           bundle exec rake db:migrate
 
       - name: Run tests
         shell: bash {0}
         run: |
+          source /home/runner/.rvm/scripts/rvm
           bundle exec rspec spec
           bundle exec cucumber
