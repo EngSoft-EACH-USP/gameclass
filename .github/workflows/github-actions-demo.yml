@@ -8,6 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Remove default ruby
+        run: |
+          sudo apt remove ruby -y
+
       - name: Install rvm
         shell: bash {0}
         run: |
