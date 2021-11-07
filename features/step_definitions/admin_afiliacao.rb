@@ -50,7 +50,7 @@ Então ('eu deveria ver a página de solicitacoes') do
 end
 
 Então ('eu nao deveria ver a solicitacao e ser redirecionado para a pagina de listagem e o usuario deveria ser atualizado para coach') do
-  @user = User.find_by(id: 1, name: 'aceitado')
+  @user = User.find_by(id: 2, name: 'aceitado')
   expect(@user.kind).to eq("coach")
   expect(page).to have_current_path '/admin/affiliate'
 end
