@@ -7,23 +7,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby: [3.0.1]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Install rvm
+        shell: bash {0}
+        run: |
+          gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+          curl -sSL https://get.rvm.io | bash -s stable
+          export rvm_install_on_use_flag=1
+          echo "source $HOME/.rvm/scripts/rvm" >> "$HOME/.bash_profile"
 
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
-        with:
-          bundler-cache: true
-
+      - run: rvm install 3.0.1
+      - run: rvm use 3.0.1
       - run: yarn add @rails/webpacker
       - run: bundle update --bundler
       - run: RAILS_ENV=test bundle exec rails webpacker:compile
