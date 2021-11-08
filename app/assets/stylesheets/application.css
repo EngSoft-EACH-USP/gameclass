@@ -23,6 +23,8 @@ body{
     vertical-align: middle;
     padding: 50px;
     text-align: center;
+    width: 8000px;
+    margin: auto;
 }
 
 input, textarea, button{
