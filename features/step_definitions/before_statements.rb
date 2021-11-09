@@ -1,22 +1,19 @@
 
 Before '@mock_user' do
-    user = FactoryBot::create :user, :id => 1
+    user = FactoryBot::create :user
     @username = user.username
     @password = user.password
     @name = user.name
 end
 
 Before '@mock_coach' do
-    user = FactoryBot::create :user, :id => 2
-    coach = FactoryBot::create :coach, :user_id => 2, :whatsapp => 11980770907
-    coach.save
+    user = FactoryBot::create :user
+    coach = FactoryBot::create :coach, :user_id => user.id, :whatsapp => 11980770907
 end
 
 Before '@mock_affiliate_request' do
-    user = FactoryBot::create :user, :id => 6, :name => 'aceitado'
-    user = FactoryBot::create :user, :id => 7, :name => 'rejeitado'
-    affiliate_accept = FactoryBot::create :affiliate_request, :user_id => 6
-    affiliate_reject = FactoryBot::create :affiliate_request, :user_id => 7
-    affiliate_accept.save
-    affiliate_reject.save
+    @deve_ser_aceito = FactoryBot::create :user, kind: :learner
+    @deve_ser_rejeitado = FactoryBot::create :user, kind: :learner
+    affiliate_accept = FactoryBot::create :affiliate_request, :user_id => @deve_ser_aceito.id
+    affiliate_reject = FactoryBot::create :affiliate_request, :user_id => @deve_ser_rejeitado.id
 end

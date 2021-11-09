@@ -1,6 +1,7 @@
 include SessionHelper
 
 Dado ('que eu nao estou logado') do
+  
 end
 
 Dado ('que eu nao estou logado como administrador') do
@@ -49,12 +50,14 @@ Então ('eu deveria ver a página de solicitacoes') do
   expect(page).to have_content "Status"
 end
 
-Então ('eu nao deveria ver a solicitacao e ser redirecionado para a pagina de listagem e o usuario deveria ser atualizado para coach') do
-  @user = User.find_by(id: 6, name: 'aceitado')
-  expect(@user.kind).to eq("coach")
+Então 'eu nao deveria ver a solicitacao' do
+
+end
+
+Então 'eu deveria ser redirecionado para a pagina de listagem' do
   expect(page).to have_current_path '/admin/affiliate'
 end
 
-Então ('eu nao deveria ver a solicitacao e ser redirecionado para a pagina de listagem') do
-  expect(page).to have_current_path '/admin/affiliate'
+Então 'o usuario deveria ser atualizado para coach' do
+  expect(@deve_ser_aceito.kind).to eq "coach"
 end
