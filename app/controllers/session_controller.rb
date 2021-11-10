@@ -18,7 +18,7 @@ class SessionController < ApplicationController
       @user = User.find_by username: params[:username]
 
       # Falha de segurança salvar a senha diretamente, mas é provisório
-      if @user && @user.password == params[:password]
+      if @user && @user.authenticate(params[:password])
         connect @user
         redirect_to '/me'
       else

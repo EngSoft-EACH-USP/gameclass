@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
 
       # Session
       t.string :username # Required
-      t.string :password # Required
+      t.string :password_digest # Required
       t.integer :kind # Required
 
       # Info
