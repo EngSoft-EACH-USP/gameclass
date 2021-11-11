@@ -14,12 +14,12 @@
 
   <tbody>
     <% @affiliates.each do |affiliate| %>
-      <tr>
+      <tr class="row_<%= affiliate.id%>">
         <td><%= affiliate.user.name %></td>
         <td><%= affiliate.description %></td>
         <td><%= affiliate.status %></td>
-        <td class='accept'><%= link_to 'Aceitar', affiliate_accept_path(affiliate.id), method: :post %></td>
-        <td class='reject'><%= link_to 'Rejeitar', affiliate_reject_path(affiliate.id), method: :post %></td>
+        <td class="accept_<%= affiliate.id %>"><%= link_to 'Aceitar', affiliate_accept_path(affiliate.id), method: :post %></td>
+        <td class="reject_<%= affiliate.id %>"><%= link_to 'Rejeitar', affiliate_reject_path(affiliate.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>

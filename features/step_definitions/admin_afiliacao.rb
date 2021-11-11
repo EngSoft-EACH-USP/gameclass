@@ -34,11 +34,17 @@ Quando ('eu tento acessar a pagina de listagem de solicitacoes') do
 end
 
 Quando ('eu clico no botao de aceitar') do
-  find(".accept", match: :first).click_link
+  id = @affiliate_accept.id
+  within ".row_#{id}" do
+    click_on "Aceitar"
+  end
 end
 
 Quando ('eu clico no botao de rejeitar') do
-  find(".reject", match: :first).click_link
+  id = @affiliate_reject.id
+  within ".row_#{id}" do
+    click_on "Rejeitar"
+  end
 end
 
 Então ('eu não deveria ver a página de solicitacoes') do
@@ -50,14 +56,6 @@ Então ('eu deveria ver a página de solicitacoes') do
   expect(page).to have_content "Status"
 end
 
-Então 'eu nao deveria ver a solicitacao' do
-
-end
-
 Então 'eu deveria ser redirecionado para a pagina de listagem' do
   expect(page).to have_current_path '/admin/affiliate'
-end
-
-Então 'o usuario deveria ser atualizado para coach' do
-  expect(@deve_ser_aceito.kind).to eq "coach"
 end

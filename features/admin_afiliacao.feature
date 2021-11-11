@@ -25,12 +25,9 @@ Cenário: Acessando a pagina de admin logado como admin
 Cenário: Clicando o botao de aceitar uma solicitacao
   Dado que eu estou na pagina de listagem de solicitacoes
   Quando eu clico no botao de aceitar
-  Então eu nao deveria ver a solicitacao
-  E eu deveria ser redirecionado para a pagina de listagem
-  E o usuario deveria ser atualizado para coach
+  Então eu deveria ser redirecionado para a pagina de listagem
 
 Cenário: Clicando o botao de rejeitar uma solicitacao
   Dado que eu estou na pagina de listagem de solicitacoes
   Quando eu clico no botao de rejeitar
-  Então eu nao deveria ver a solicitacao
-  E eu deveria ser redirecionado para a pagina de listagem
+  Então eu deveria ser redirecionado para a pagina de listagem
