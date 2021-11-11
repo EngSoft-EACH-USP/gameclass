@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_175201) do
+ActiveRecord::Schema.define(version: 2021_10_29_204107) do
+
+  create_table "affiliate_requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "description"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_affiliate_requests_on_user_id"
+  end
 
   create_table "coaches", force: :cascade do |t|
     t.integer "user_id"
@@ -24,12 +33,13 @@ ActiveRecord::Schema.define(version: 2021_10_17_175201) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.integer "kind"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "affiliate_requests", "users"
   add_foreign_key "coaches", "users"
 end

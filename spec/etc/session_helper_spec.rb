@@ -6,10 +6,10 @@ RSpec.describe 'app/helpers/sessions_helper.rb', type: :helper do
     
     it 'tells whether a session is up or down' do
         session[:logged] = true
-        expect(isLogged?).to eq true
+        expect(is_logged?).to eq true
 
         session[:logged] = false
-        expect(isLogged?).to eq false
+        expect(is_logged?).to eq false
     end
 
     it 'tells who is logged' do
@@ -33,9 +33,9 @@ RSpec.describe 'app/helpers/sessions_helper.rb', type: :helper do
         session[:logged] = true
         session[:user_id] = user.id
         
-        expect(hasPermission? :learner, :admin, :coach).to eq true
-        expect(hasPermission?).to eq(false)
-        expect(hasPermission? :coach, :learner).to eq false
+        expect(has_permission? :learner, :admin, :coach).to eq true
+        expect(has_permission?).to eq(false)
+        expect(has_permission? :coach, :learner).to eq false
     end
 
     it 'logs a user' do

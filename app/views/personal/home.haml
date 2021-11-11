@@ -5,3 +5,9 @@
 
 = form_with url: 'login', method: 'delete', local: true do |form|
     = form.submit 'Sair'
+
+= form_with url: info_path(@user), method: 'get', local: true do |form|
+    = form.submit 'Editar dados'
+
+= form_with url: "/affiliate", method: 'get', local: true do |form|
+    = form.submit 'Solicitar afiliação'

@@ -23,9 +23,11 @@ body{
     vertical-align: middle;
     padding: 50px;
     text-align: center;
+    width: 8000px;
+    margin: auto;
 }
 
-input, textarea{
+input, textarea, button{
     border-radius: 5px;
     font-size: 18px;
     font-family: light;
@@ -45,13 +47,13 @@ input, textarea{
     padding: 2px
 }
 
-input[type=submit]{
+input[type=submit], button{
     width: 150px;
     height: 30px;
     background-color: #e4a3a3;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover, button:hover{
     width: 150px;
     height: 30px;
     background-color: #d48181;

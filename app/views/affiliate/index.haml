@@ -1,0 +1,6 @@
+%h1 Afilie-se
+= form_with url: 'affiliate', local: true do |form|
+  = form.label "Descrição"
+  = form.text_area :description
+  %br/
+  = form.submit "Enviar"

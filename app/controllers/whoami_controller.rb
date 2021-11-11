@@ -1,9 +1,10 @@
 
 class WhoamiController < ApplicationController
+    include SessionHelper
+
     def index
-        if session[:logged]
-            user = User.find_by(id: session[:user_id])
-            render plain: "You are logged as #{user.name}."
+        if is_logged?
+            render plain: "You are logged as #{current_user.name}."
         else
             render plain: 'You are not logged in.'
         end
