@@ -39,9 +39,14 @@ jobs:
           RAILS_ENV=test bundle exec rails webpacker:compile
           RAILS_ENV=test bundle exec rake db:migrate
 
-      - name: Run tests
+      - name: Run Cucumber
         shell: bash {0}
         run: |
           source /home/runner/.rvm/scripts/rvm
           bundle exec cucumber
+        
+      - name: Run RSpec
+        shell: bash {0}
+        run: |
+          source /home/runner/.rvm/scripts/rvm
           bundle exec rspec spec
