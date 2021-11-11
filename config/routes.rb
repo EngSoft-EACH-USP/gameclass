@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   # Página pessoal do usuário cadastrado
   get     'me'                         => 'personal#home'
 
+  get 'meus_alunos'                    => 'meus_alunos#show_meus_alunos'
+
   # Seção de jogos
   get     'games'                      => 'games#show_games'
 
