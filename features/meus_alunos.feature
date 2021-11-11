@@ -1,11 +1,12 @@
-Funcionalidade:
+#language: pt
 
-Como professor cadastrado,
-Eu quero uma página de alunos
-De modo que eu possa visualizar os alunos que me contrataram
+Funcionalidade:
+    Como professor cadastrado,
+    Eu quero uma página de alunos
+    De modo que eu possa visualizar os alunos que me contrataram
 
 Cenário: Sou um professor cadastrado
-    Dado que eu estou logado como professor
+    Dado que eu estou logado como coach
     Quando eu tento acessar a página de alunos
     Então eu deveria ver os alunos que me contrataram
 
