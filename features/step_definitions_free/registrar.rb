@@ -21,14 +21,6 @@ Dado('que eu estou na página de cadastro') do
   expect(current_path).to eq '/register'
 end
 
-Quando('eu clico em {string}') do |string|
-  click_on string
-end
-
-Então('eu deveria ser redirecionado para a página de cadastro') do
-  expect(current_path).to eq '/register'
-end
-
 Quando('eu preencho o campo username') do
   fill_in 'username', with: @username
 end
@@ -69,10 +61,6 @@ end
 
 Então('eu deveria ver minha área pessoal') do
   expect(current_path).to eq '/me'
-end
-
-Então('eu deveria ser redirecionado para a página de login') do
-  expect(current_path).to eq '/login'
 end
 
 Então('eu deveria ver {string}') do |string|

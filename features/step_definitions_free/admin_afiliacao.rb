@@ -29,10 +29,6 @@ Dado ('que eu estou na pagina de listagem de solicitacoes') do
   visit '/admin/affiliate'
 end
 
-Quando ('eu tento acessar a pagina de listagem de solicitacoes') do
-  visit '/admin/affiliate'
-end
-
 Quando ('eu clico no botao de aceitar') do
   id = @affiliate_accept.id
   within ".row_#{id}" do
@@ -54,8 +50,4 @@ end
 Então ('eu deveria ver a página de solicitacoes') do
   expect(page).to have_content "Description"
   expect(page).to have_content "Status"
-end
-
-Então 'eu deveria ser redirecionado para a pagina de listagem' do
-  expect(page).to have_current_path '/admin/affiliate'
 end

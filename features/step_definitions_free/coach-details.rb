@@ -20,14 +20,6 @@ end
 
 ###################### Então
 
-Então "eu deveria ser redirecionado para a pagina de detalhamento" do
-  expect(page).to have_selector(:link, 'Agendar aula')
-end
-
 Então 'o botao de agendamento deve estar certo' do
   expect(page).to have_link('Agendar aula', href: 'https://api.whatsapp.com/send?phone=11980770907&text=Gostaria de uma aula porfavor')
-end
-
-Então 'eu deveria ser redirecionado para a pagina de listagem dos coaches' do
-  expect(page).to have_selector(:link, 'Show')
 end

@@ -10,12 +10,12 @@ Funcionalidade: Pagina de detalhamento do coach
 Cenário: Pagina de detalhamento carrega corretamente
     Dado que estou na pagina de listagem de coaches
     Quando eu clico em um coach
-    Então eu deveria ser redirecionado para a pagina de detalhamento
+    Então eu deveria ser redirecionado para a pagina de detalhes de coach
 
 Cenário: O botao de voltar funciona corretamente
     Dado que eu estou na página de detalhamento
     Quando eu clico no botao de voltar
-    Então eu deveria ser redirecionado para a pagina de listagem dos coaches
+    Então eu deveria ser redirecionado para a pagina de listagem de coaches
 
 Cenário: O botao de contato funciona corretamente
     Dado que eu estou na página de detalhamento

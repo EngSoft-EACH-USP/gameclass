@@ -1,4 +1,5 @@
 
+# Obsoleto, má prática e removerei assim qeu possível.
 Before '@mock_user' do
     user = FactoryBot::create :user
     @username = user.username
