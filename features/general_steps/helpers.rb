@@ -24,3 +24,11 @@ def make_login(username, password)
   fill_in 'password', with: password
   click_on 'Entrar'
 end
+
+def get_url(page_name)
+  res = $page_urls[page_name]
+  unless res == nil
+    return res
+  end
+  raise("Não existe uma página com o nome \"#{page_name}\". Certifique-se de que descreveu o nome corretamente ou consulte o arquivo ./features/page_names.rb.")
+end

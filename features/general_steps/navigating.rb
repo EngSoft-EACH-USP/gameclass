@@ -1,14 +1,6 @@
 
 # Ações relacionadas à navegação.
 
-def get_url(page_name)
-  res = $page_urls[page_name]
-  unless res == nil
-    return res
-  end
-  raise("Não existe uma página com o nome \"#{page_name}\". Certifique-se de que descreveu o nome corretamente ou consulte o arquivo ./features/page_names.rb.")
-end
-
 # Garante que ele esteja em uma página.
 # Feito para funcionar tanto com "dado que eu estou 'na' página X" quanto com "dado qeu eu estou 'em a' página X"
 Dado /^que eu estou ([n(em )])([^"]*)$/ do |_, page|

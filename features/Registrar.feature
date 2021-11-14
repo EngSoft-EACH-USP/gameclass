@@ -1,7 +1,7 @@
 
 #language: pt
 
-@define_credentials
+@mentalize_suas_credenciais
 
 Funcionalidade: Registrar
     Como usuário do Gameclass
@@ -10,14 +10,14 @@ Funcionalidade: Registrar
 
 Cenário: Botão cadastrar na página de login
     Dado que eu não estou logado
-    E que estou na página de login
+    E que eu estou na página de login
     Quando eu clico em Cadastrar
     Então eu deveria ser redirecionado para a página de cadastro
 
 Cenário: Registrar funciona perfeitamente
     Dado que eu estou na página de cadastro
     Quando eu preencho o campo username
-    E eu preencho os campos senha
+    E eu preencho corretamente os campos de senha
     E eu preencho o campo nome
     E eu clico em Cadastrar
     Então eu deveria ser redirecionado para a página de login
@@ -25,14 +25,14 @@ Cenário: Registrar funciona perfeitamente
 
 Cenário: Registrar falha: username ausente
     Dado que eu estou na página de cadastro
-    Quando eu preencho os campos senha
+    Quando eu preencho corretamente os campos de senha
     E eu preencho o campo nome
     E eu clico em Cadastrar
     Então eu deveria ver "Preencha todos os campos obrigatórios."
 
 Cenário: Registrar falha: nome ausente
     Dado que eu estou na página de cadastro
-    Quando eu preencho os campos senha
+    Quando eu preencho corretamente os campos de senha
     E eu preencho o campo username
     E eu clico em Cadastrar
     Então eu deveria ver "Preencha todos os campos obrigatórios."
@@ -53,6 +53,6 @@ Cenário: Registrar falha: senhas não conferem
     Então eu deveria ver "As senhas não conferem."
 
 Cenário: Username indisponível
-    Dado que eu já estou cadastrado
-    Quando eu tento me cadastrar
+    Dado que eu sou cadastrado como qualquer
+    Quando eu tento me cadastrar de novo
     Então eu deveria ver "Nome de usuário indisponível."

@@ -21,7 +21,6 @@ Cenário: Enviando solicitação
   E eu clico em Enviar
   Então minha solicitação deveria ser registrada no sistema
 
-# Vou redefinir a forma como ele decide o que quer dizer "não vejo a página de afiliação"
 Cenario: Tentando acessar a página de afiliação deslogado
   Dado que eu não estou logado
   Quando eu tento acessar a página de afiliação

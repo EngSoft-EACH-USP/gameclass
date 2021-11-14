@@ -18,7 +18,6 @@ end
 # Serve tanto para botão quanto para links que possuam nome com só uma palavra.
 # "name" deve ser exatamente igual ao texto do botão ou link.
 Quando "eu clico em {word}" do |name|
-  p page.html
   click_on name, match: :first
 end
 
