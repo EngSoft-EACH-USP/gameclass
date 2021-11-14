@@ -1,7 +1,7 @@
 
 #language: pt
 
-Funcionalidade: Log-out de usuário
+Funcionalidade: Logout de usuário
   Como usuário logado
   Quero um botão Encerrar sessão
   De modo que minha sessão não fique exposta

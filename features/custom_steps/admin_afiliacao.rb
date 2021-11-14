@@ -1,19 +1,7 @@
 include SessionHelper
 
-Dado ('que eu nao estou logado') do
-  
-end
-
-Dado ('que eu nao estou logado como administrador') do
+Dado('que eu nao estou logado como administrador') do
   @user = FactoryBot::create :user, :kind => :learner
-  visit '/login'
-  fill_in 'username', with: @user.username
-  fill_in 'password', with: @user.password
-  click_on 'Entrar'
-end
-
-Dado ('que eu entro no sistema como admin') do
-  @user = FactoryBot::create :user, :kind => :admin
   visit '/login'
   fill_in 'username', with: @user.username
   fill_in 'password', with: @user.password

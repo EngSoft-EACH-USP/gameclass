@@ -2,32 +2,38 @@
 
 @mock_affiliate_request
 
-Funcionalidade:
+Funcionalidade: Administrar solicitações de afiliação
   Como administrador
   Quero uma pagina que liste todas as solicitacoes
   De modo que eu possa ver todas elas
 
-Cenário: Acessando a pagina de admin sem estar logado
-  Dado que eu nao estou logado
-  Quando eu tento acessar a pagina de listagem de solicitacoes
-  Então eu não deveria ver a página de solicitacoes
+  Exemplo: Acessando a pagina de admin sem estar logado
+    Dado que eu não estou logado
+    Quando eu tento acessar a página de solicitações de afiliação
+    Então eu não deveria ver a página de solicitacoes
 
-Cenário: Acessando a pagina de admin sem estar logado como administrador
-  Dado que eu nao estou logado como administrador
-  Quando eu tento acessar a pagina de listagem de solicitacoes
-  Então eu não deveria ver a página de solicitacoes
+  Exemplo: Acessando a pagina de admin sem estar logado como administrador
+    Dado que eu sou cadastrado, só não como administrador
+    E que eu estou logado
+    Quando eu tento acessar a página de solicitações de afiliação
+    Então eu não deveria ver a página de solicitacoes
 
-Cenário: Acessando a pagina de admin logado como admin
-  Dado que eu entro no sistema como admin
-  Quando eu tento acessar a pagina de listagem de solicitacoes
-  Então eu deveria ver a página de solicitacoes
+  Exemplo: Acessando a pagina de admin logado como admin
+    Dado que eu sou cadastrado como administrador
+    E que eu estou logado
+    Quando eu tento acessar a página de solicitações de afiliação
+    Então eu deveria ver a página de solicitacoes
 
-Cenário: Clicando o botao de aceitar uma solicitacao
-  Dado que eu estou na pagina de listagem de solicitacoes
-  Quando eu clico no botao de aceitar
-  Então eu deveria ser redirecionado para a pagina de listagem de solicitacoes
+  Exemplo: Clicando no botao de aceitar uma solicitacao
+    Dado que eu sou cadastrado como administrador
+    E que eu estou logado
+    E que eu estou na página de solicitações de afiliação
+    Quando eu clico em Aceitar
+    Então eu deveria ser redirecionado para a página de solicitações de afiliação
 
-Cenário: Clicando o botao de rejeitar uma solicitacao
-  Dado que eu estou na pagina de listagem de solicitacoes
-  Quando eu clico no botao de rejeitar
-  Então eu deveria ser redirecionado para a pagina de listagem de solicitacoes
+  Exemplo: Clicando o botao de rejeitar uma solicitacao
+    Dado que eu sou cadastrado como administrador
+    E que eu estou logado
+    Dado que eu estou na página de solicitações de afiliação
+    Quando eu clico em Rejeitar
+    Então eu deveria ser redirecionado para a página de solicitações de afiliação

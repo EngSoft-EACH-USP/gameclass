@@ -1,6 +1,6 @@
 #language: pt
 
-Funcionalidade:
+Funcionalidade: Ver meus alunos
     Como professor cadastrado,
     Eu quero uma página de alunos
     De modo que eu possa visualizar os alunos que me contrataram

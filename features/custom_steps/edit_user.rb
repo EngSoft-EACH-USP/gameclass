@@ -6,15 +6,6 @@ Então('era para eu ser redirecionado para a página de login') do
   expect(current_path).to eq '/login'
 end
 
-Dado('que eu estou na página de edição logado') do
-  visit 'login'
-  fill_in 'username', :with => @username
-  fill_in 'password', :with => @password
-  click_on 'Entrar'
-  
-  visit '/infos/1'
-end
-
 Quando('preencho o campo username que nao existe') do
   fill_in 'username', with: 'Novo'
   click_on 'Editar'

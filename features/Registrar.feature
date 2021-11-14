@@ -9,7 +9,8 @@ Funcionalidade: Registrar
     Para que eu possa me cadastrar no sistema
 
 Cenário: Botão cadastrar na página de login
-    Dado que estou na página de login
+    Dado que eu não estou logado
+    E que estou na página de login
     Quando eu clico em Cadastrar
     Então eu deveria ser redirecionado para a página de cadastro
 

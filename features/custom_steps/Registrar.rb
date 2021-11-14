@@ -6,7 +6,6 @@ Before '@define_credentials' do
   @name = FFaker::Name::name
 end
 
-
 Dado('que eu já estou cadastrado') do
   User.create name: @name, username: @username, password: @password, kind: :learner
 end
@@ -14,11 +13,6 @@ end
 Dado('que estou na página de login') do
   visit '/login'
   expect(current_path).to eq '/login'
-end
-
-Dado('que eu estou na página de cadastro') do
-  visit '/register'
-  expect(current_path).to eq '/register'
 end
 
 Quando('eu preencho o campo username') do
