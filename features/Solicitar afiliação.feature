@@ -23,17 +23,14 @@ Cenário: Enviando solicitação
 
 Cenario: Tentando acessar a página de afiliação deslogado
   Dado que eu não estou logado
-  Quando eu tento acessar a página de afiliação
-  Então eu não deveria ver a página de afiliação
+  Então eu não deveria poder acessar a página de afiliação
 
-Cenário: Já sou professor
+Cenário: Professor não tem acesso
   Dado que eu sou cadastrado como professor
   E que eu estou logado
-  Quando eu tento acessar a página de afiliação
-  Então eu não deveria ver a página de afiliação
+  Então eu não deveria poder acessar a página de afiliação
 
-Cenário: Sou o administrador
+Cenário: Administrador não tem acesso
   Dado que eu sou cadastrado como administrador
   E que eu estou logado
-  Quando eu tento acessar a página de afiliação
-  Então eu não deveria ver a página de afiliação
+  Então eu não deveria poder acessar a página de afiliação
