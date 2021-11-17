@@ -4,6 +4,7 @@
 # Use artigos definidos somente em strings e artigos indefinidos em expressões regulares.
 
 $page_urls = {
+  'a página de administração de coaches'  => '/admin/coaches',
   'a página de afiliação'                 => '/affiliate',
   'a página de alunos'                    => '/meus_alunos', # Quebra de padrão
   'a página de cadastro'                  => '/register',

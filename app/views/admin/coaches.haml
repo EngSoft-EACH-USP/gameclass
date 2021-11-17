@@ -1,0 +1,16 @@
+%table
+  %tr
+    %td
+      %h3 Nome
+    %td
+      %h3 Jogo
+    %td
+      %h3 Whatsapp
+  - @coaches.each do |coach|
+    %tr
+      %td
+        = coach.user.name
+      %td
+        = coach.game
+      %td
+        = coach.whatsapp

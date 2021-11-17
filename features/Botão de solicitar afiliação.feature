@@ -16,4 +16,4 @@ Funcionalidade: Botão de solicitar afiliação
     Dado que eu estou logado
     Quando eu acesso minha área pessoal
     E eu clico no botão "Solicitar afiliação"
-    Então eu deveria ver a página de afiliação
+    Então eu deveria ser redirecionado para a página de afiliação
