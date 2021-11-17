@@ -30,5 +30,5 @@ def url_of(page_name)
   unless res == nil
     return res
   end
-  raise("Não existe uma página com o nome \"#{page_name}\". Certifique-se de que descreveu o nome corretamente ou consulte o arquivo ./features/Nome das páginas.rb.")
+  raise("Não existe uma página com o nome \"#{page_name}\". Verifique a ortografia ou consulte o arquivo em ./features/Nome das páginas.rb.")
 end
