@@ -160,7 +160,7 @@ GEM
       tilt
     highline (1.7.10)
     i18n (1.8.11)
-      concurrent-ruby (~> 1.0)
+      concurrent-ruby (>= 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     json (2.6.1)
@@ -373,7 +373,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.30
