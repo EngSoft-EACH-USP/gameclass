@@ -9,7 +9,6 @@ Dado "que existe pelo menos um coach cadastrado" do
     @coach.save
   else
     @coach = all[0]
-    p @coach
     @coach.save
   end
 end

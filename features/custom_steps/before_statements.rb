@@ -18,3 +18,9 @@ Before '@mock_affiliate_request' do
     @affiliate_accept = FactoryBot::create :affiliate_request, :user_id => @deve_ser_aceito.id
     @affiliate_reject = FactoryBot::create :affiliate_request, :user_id => @deve_ser_rejeitado.id
 end
+
+Before '@clear_coaches' do
+  Coach.all.each do |coach|
+    coach.destroy
+  end
+end

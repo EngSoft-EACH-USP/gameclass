@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   # Administrador poder ver os coaches
   get     'admin/coaches'               => 'admin#coaches'
+  delete  'admin/coaches/:id'           => 'admin#remove'
 
   # Ver todas as solicitacoes
   get     'admin/affiliate'             => 'affiliate#show'

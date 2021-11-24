@@ -14,3 +14,5 @@
         = coach.game
       %td
         = coach.whatsapp
+      %td
+        %a{ "data-method" => "DELETE", href: "/admin/coaches/#{coach.id}" } Remover

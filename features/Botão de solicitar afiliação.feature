@@ -6,7 +6,7 @@ Funcionalidade: Botão de solicitar afiliação
   Quero um botão "solicitar afiliação" na minha área pessoal
 
   Cenário: O botão existe
-    Dado que eu sou cadastrado como aluno
+    Dado que eu sou cadastrado como administrador
     Dado que eu estou logado
     Quando eu acesso minha área pessoal
     Então eu deveria ver um botão "Solicitar afiliação"
