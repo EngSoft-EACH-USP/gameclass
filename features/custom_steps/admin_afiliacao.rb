@@ -35,6 +35,16 @@ Então ('eu não deveria ver a página de solicitacoes') do
   expect(page).to have_current_path "/admin/affiliate"
 end
 
+Então ('um coach deve ser criado') do
+  coach = Coach.find_by(user_id: @affiliate_accept.user_id)
+  expect(coach.user_id).to eq @affiliate_accept.user_id
+end
+
+Então ('o usuario deve ser atualizado') do
+  user = User.find_by_id(@affiliate_accept.user_id)
+  expect(user.kind).to eq 'coach'
+end
+
 Então ('eu deveria ver a página de solicitacoes') do
   expect(page).to have_content "Description"
   expect(page).to have_content "Status"
