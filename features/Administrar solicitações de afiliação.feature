@@ -29,7 +29,10 @@ Funcionalidade: Administrar solicitações de afiliação
     E que eu estou logado
     E que eu estou na página de solicitações de afiliação
     Quando eu clico em Aceitar
-    Então eu deveria ser redirecionado para a página de solicitações de afiliação
+    Então um coach deve ser criado
+    E o usuario deve ser atualizado
+    E eu deveria ser redirecionado para a página de solicitações de afiliação
+    
 
   Exemplo: Clicando o botao de rejeitar uma solicitacao
     Dado que eu sou cadastrado como administrador

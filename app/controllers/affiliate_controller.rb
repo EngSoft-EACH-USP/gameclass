@@ -40,14 +40,15 @@ class AffiliateController < ApplicationController
       head :forbidden
     else
       path = request.path
-      new_status = path.include?('accept') ? :accepted : :rejected
-      @affiliate = AffiliateRequest.find(params[:id])
-      @affiliate.status = new_status
-      @affiliate.save
-      if new_status == :accepted
-        @user = User.find_by(id: @affiliate.user_id)
-        @user.kind = :coach
-        @user.save
+      new_status = path.include?('accept') ? 'accepted' : 'rejected'
+      affiliate = AffiliateRequest.find(params[:id])
+      affiliate.status = new_status
+      affiliate.save
+      if new_status == 'accepted'
+        user = User.find(affiliate.user_id)
+        user.kind = :coach
+        user.save
+        coach = Coach.new(user: user, game: 'Lol', whatsapp: '198239283', description: '').save
       end
       redirect_to admin_affiliate_path
     end
