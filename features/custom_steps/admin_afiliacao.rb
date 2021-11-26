@@ -36,12 +36,12 @@ Então ('eu não deveria ver a página de solicitacoes') do
 end
 
 Então ('um coach deve ser criado') do
-  coach = Coach.find_by(user_id: @affiliate_accept.user_id)
-  expect(coach.user_id).to eq @affiliate_accept.user_id
+  coach = Coach.find_by(user_id: @deve_ser_aceito.id)
+  expect(coach.user).to eq @deve_ser_aceito
 end
 
 Então ('o usuario deve ser atualizado') do
-  user = User.find_by_id(@affiliate_accept.user_id)
+  user = User.find_by_id(@deve_ser_aceito.id)
   expect(user.kind).to eq 'coach'
 end
 
