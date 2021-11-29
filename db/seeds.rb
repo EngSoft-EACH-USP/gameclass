@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Usuário principais dos quais saberemos senha e login
 
 User.create(
     username: "admin",
@@ -20,24 +14,56 @@ coach = User.create(
     kind: :coach
 )
 
+Coach.create(
+  user: coach,
+  game: 'lol',
+  description: 'Professor há mais de 10 anos de lol, challenger',
+  whatsapp: 11980770907
+)
+
 learner = User.create(
-    username: "learner",
-    password: "learner",
+    username: "aluno",
+    password: "aluno",
     name: 'Aprendiz do GameClass',
     kind: :learner
 )
 
-Coach.create(
-    user: coach,
-    game: 'lol',
-    description: 'Professor há mais de 10 anos de lol, challenger',
-    whatsapp: 11980770907
-)
-
 AffiliateRequest.create(
     user: learner,
-    description: 'Sou muito bom no lol cara pfvr...',
+    description: FFaker::LoremBR.sentence(15),
     status: :pending
 )
+
+# Cria 25 solicitações de afiliação
+25.times do
+  req = AffiliateRequest.new do |req|
+    user = User.create do |user|
+      user.name = FFaker::NameBR.name
+      user.username = FFaker::Internet.user_name
+      user.password = '1234'
+      user.kind = :learner
+    end
+    req.user_id = user.id
+    req.description = FFaker::LoremBR.sentence 15
+  end
+  req.save
+  p req
+end
+
+# Cria 25 registros de coach
+25.times do
+  coach = Coach.new do |coach|
+    user = User.create do |user|
+      user.name = 'Professor ' + FFaker::NameBR.name
+      user.username = FFaker::Internet.user_name
+      user.password = '1234'
+      user.kind = :coach
+    end
+    coach.user_id = user.id
+    coach.game = %w[ LeagueOfLegends Dota2 CSGO QuakeChampions DoomEternal ].sample
+  end
+  coach.save
+  p coach
+end
 
 # Evite usar ids fixos nos seeds, ou isso pode levar a inconsistências no banco de dados.

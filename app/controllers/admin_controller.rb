@@ -29,7 +29,6 @@ class AdminController < ApplicationController
     coach = Coach.find_by_id params[:id]
     user = User.find_by_id coach.user_id
 
-    coach.destroy
     user.destroy
 
     redirect_to '/admin/coaches/'
