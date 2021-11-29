@@ -9,18 +9,18 @@
 User.create(
     username: "admin",
     password: "admin",
-    name: 'Administradores dos GameClass',
+    name: 'Administradores do GameClass',
     kind: :admin
 )
 
-User.create(
+coach = User.create(
     username: "coach",
     password: "coach",
     name: 'Professor do GameClass',
     kind: :coach
 )
 
-User.create(
+learner = User.create(
     username: "learner",
     password: "learner",
     name: 'Aprendiz do GameClass',
@@ -28,14 +28,16 @@ User.create(
 )
 
 Coach.create(
-    user_id: 2,
+    user: coach,
     game: 'lol',
     description: 'Professor há mais de 10 anos de lol, challenger',
     whatsapp: 11980770907
 )
 
 AffiliateRequest.create(
-    user_id: 3,
+    user: learner,
     description: 'Sou muito bom no lol cara pfvr...',
     status: :pending
 )
+
+# Evite usar ids fixos nos seeds, ou isso pode levar a inconsistências no banco de dados.

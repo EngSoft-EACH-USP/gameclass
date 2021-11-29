@@ -26,12 +26,12 @@ class AdminController < ApplicationController
       return
     end
 
-    coach = Coach.find_by id: params[:id]
-    user = User.find_by id: coach.user_id
+    coach = Coach.find_by_id params[:id]
+    user = User.find_by_id coach.user_id
 
     coach.destroy
     user.destroy
 
-    redirect_to '/admin/coaches'
+    redirect_to '/admin/coaches/'
   end
 end
