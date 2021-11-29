@@ -26,6 +26,7 @@ gem 'travis'
 gem 'rexml'
 gem 'haml'
 gem 'coveralls_reborn', '~> 0.23.0', require: false
+gem 'ffaker'
 
 group :test do
   gem 'cucumber-rails', require: false
@@ -45,7 +46,6 @@ group :development, :test do
   gem 'rspec-rails' 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
-  gem 'ffaker'
 end
 
 group :development do
