@@ -13,10 +13,11 @@ Before '@mock_coach' do
 end
 
 Before '@mock_affiliate_request' do
-    @deve_ser_aceito = FactoryBot::create :user, kind: :learner
-    @deve_ser_rejeitado = FactoryBot::create :user, kind: :learner
-    @affiliate_accept = FactoryBot::create :affiliate_request, :user_id => @deve_ser_aceito.id
-    @affiliate_reject = FactoryBot::create :affiliate_request, :user_id => @deve_ser_rejeitado.id
+  User.all.each do |one| one.destroy end
+  @deve_ser_aceito = FactoryBot::create :user, kind: :learner
+  @deve_ser_rejeitado = FactoryBot::create :user, kind: :learner
+  @affiliate_accept = FactoryBot::create :affiliate_request, :user_id => @deve_ser_aceito.id
+  @affiliate_reject = FactoryBot::create :affiliate_request, :user_id => @deve_ser_rejeitado.id
 end
 
 Before '@clear_coaches' do

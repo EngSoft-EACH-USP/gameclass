@@ -1,4 +1,5 @@
 #language: pt
+#encoding: utf-8
 
 @mock_affiliate_request
 

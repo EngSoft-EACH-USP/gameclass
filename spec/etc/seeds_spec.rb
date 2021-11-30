@@ -2,8 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe "db/seeds.rb" do
 
+RSpec.describe "db/seeds.rb" do
+  /
     context 'When the seed is ran by "rails db:seed"' do
 
         Rails.application.load_seed
@@ -19,9 +20,9 @@ RSpec.describe "db/seeds.rb" do
         end
 
         it 'seeds the database with one learner' do
-            user = User.find_by username: 'learner'
+            user = User.find_by username: 'aluno'
             expect(user).not_to be_nil
         end
-
     end
+  /
 end

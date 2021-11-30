@@ -11,7 +11,7 @@ RSpec.describe "affiliate/show.html.erb", type: :view do
   it 'should render coach details page' do
     render
 
-    rendered.should =~ /Affiliates/
+    rendered.should =~ /Solicitações de afiliação/
   end
 
   it 'should not render coach details page' do

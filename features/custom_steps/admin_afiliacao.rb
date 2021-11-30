@@ -37,6 +37,7 @@ end
 
 Então ('um coach deve ser criado') do
   coach = Coach.find_by(user_id: @deve_ser_aceito.id)
+  p Coach.all
   expect(coach.user).to eq @deve_ser_aceito
 end
 
@@ -46,6 +47,6 @@ Então ('o usuario deve ser atualizado') do
 end
 
 Então ('eu deveria ver a página de solicitacoes') do
-  expect(page).to have_content "Description"
-  expect(page).to have_content "Status"
+  expect(page).to have_content "Descrição"
+  expect(page).to have_content "Estado"
 end

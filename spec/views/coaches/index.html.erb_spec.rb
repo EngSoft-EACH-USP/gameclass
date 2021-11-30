@@ -9,7 +9,7 @@ RSpec.describe "coaches/index.html.erb", type: :view do
 
   it "renders a list of coaches" do
     render
-    assert_select "tr>td", text: "Administradores dos GameClass".to_s, count: 1
+    assert_select "tr>td", text: "Administradores do GameClass".to_s, count: 1
     assert_select "tr>td", text: "lol".to_s, count: 1
   end
 end
