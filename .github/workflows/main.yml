@@ -34,14 +34,14 @@ jobs:
           source /home/runner/.rvm/scripts/rvm
           RAILS_ENV=test bundle exec rake db:migrate
 
-      - name: Executando testes de integração (Cucumber)
-        shell: bash {0}
-        run: |
-          source /home/runner/.rvm/scripts/rvm
-          bundle exec cucumber
-
       - name: Executando testes de unidade (RSpec)
         shell: bash {0}
         run: |
           source /home/runner/.rvm/scripts/rvm
           bundle exec rspec spec
+
+      - name: Executando testes de integração (Cucumber)
+        shell: bash {0}
+        run: |
+          source /home/runner/.rvm/scripts/rvm
+          bundle exec cucumber

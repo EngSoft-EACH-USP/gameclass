@@ -14,6 +14,15 @@ $page_urls = {
   'a página de login'                     => '/login',
   'a página inicial'                      => '/',
   'a página de solicitações de afiliação' => '/admin/affiliate',
+  'o painel administrativo'               => '/admin/',
   'minha área pessoal'                    => '/me',
   'uma pagina de detalhes de coach'       => /coach_details\/\d/, # Resolvi aquele seu problema com o details, Paulao =D
 }
+
+def url_of(page_name)
+  res = $page_urls[page_name]
+  unless res == nil
+    return res
+  end
+  raise("Não existe uma página com o nome \"#{page_name}\". Verifique a ortografia ou consulte o arquivo em ./features/Nome das páginas.rb.")
+end

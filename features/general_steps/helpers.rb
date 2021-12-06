@@ -24,11 +24,3 @@ def make_login(username, password)
   fill_in 'password', with: password
   click_on 'Entrar'
 end
-
-def url_of(page_name)
-  res = $page_urls[page_name]
-  unless res == nil
-    return res
-  end
-  raise("Não existe uma página com o nome \"#{page_name}\". Verifique a ortografia ou consulte o arquivo em ./features/Nome das páginas.rb.")
-end
