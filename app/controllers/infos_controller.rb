@@ -1,5 +1,6 @@
 
 class InfosController < ApplicationController
+  
   include SessionHelper
   
   def show
