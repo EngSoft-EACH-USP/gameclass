@@ -4,6 +4,39 @@ require "rails_helper"
 RSpec.describe AdminController do
   include SessionHelper
 
+  describe '#index' do
+    it 'returns http unauthorized if not logged' do
+      controller.stub(:is_logged?).and_return false
+      get :index
+      expect(response).to have_http_status 401
+    end
+
+    it 'returns http forbidden if is coach' do
+      mock = build :user, kind: :coach
+      controller.stub(:is_logged?).and_return true
+      controller.stub(:current_user).and_return mock
+      get :index
+      expect(response).to have_http_status 403
+    end
+
+    it 'returns http forbidden if is learner' do
+      mock = build :user, kind: :learner
+      controller.stub(:is_logged?).and_return true
+      controller.stub(:current_user).and_return mock
+      get :index
+      expect(response).to have_http_status 403
+    end
+
+    it 'renders :index if is admin' do
+      mock = build :user, kind: :admin
+      controller.stub(:is_logged?).and_return true
+      controller.stub(:current_user).and_return mock
+      get :index
+      expect(response).to have_http_status 200
+      expect(response).to render_template :index
+    end
+  end
+
   describe '#coaches' do
     it 'returns http unauthorized if not logged' do
       controller.stub(:is_logged?).and_return false
@@ -33,6 +66,7 @@ RSpec.describe AdminController do
       controller.stub(:current_user).and_return mock
       get :coaches
       expect(response).to have_http_status 200
+      expect(response).to render_template :coaches
     end
   end
 

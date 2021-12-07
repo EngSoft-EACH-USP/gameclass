@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get     'affiliate'                   => 'affiliate#index'
   post    'affiliate'                   => 'affiliate#send_request'
 
+  # Painel do administrador
+  get     '/admin'                      => 'admin#index'
+
   # Administrador poder ver os coaches
   get     'admin/coaches'               => 'admin#coaches'
   delete  'admin/coaches/:id'           => 'admin#remove'

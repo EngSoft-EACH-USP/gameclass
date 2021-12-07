@@ -2,6 +2,8 @@ class AdminController < ApplicationController
 
   include SessionHelper
 
+
+
   def coaches
     unless is_logged?
       head 401
