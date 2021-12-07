@@ -51,7 +51,7 @@ Então /^eu deveria ver um campo ([^"]*)$/ do |field|
   expect(page).to have_field field
 end
 
-Então /^eu deveria ver um link para ([^"]*)$/ do |page|
-  url = url_of page
-  expect(page).to have_selector :css,"a[href=\"#{url}\"]"
+Então /^eu deveria ver um link para ([^"]*)$/ do |page_name|
+  url = url_of page_name
+  expect(page).to have_link nil, href: url
 end

@@ -42,14 +42,13 @@ Então "eu deveria ter sucesso ao acessar" do
   expect(page.status_code).to eq 200
 end
 
-#TODO test
 Então /^eu deveria ver um erro de ([^"]*)$/ do |error|
 
-  @@http_error_codes |= {
+  @http_error_codes ||= {
     'autorização' => 403,
     'não autenticação' => 401
   }
 
-  expected_code = @@http_error_codes[error]
+  expected_code = @http_error_codes[error]
   expect(page.status_code).to eq expected_code
 end

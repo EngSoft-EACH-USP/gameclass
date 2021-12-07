@@ -2,7 +2,18 @@ class AdminController < ApplicationController
 
   include SessionHelper
 
+  def index
+    unless is_logged?
+      head 401
+      return
+    end
+    unless current_user.kind == 'admin'
+      head 403
+      return
+    end
 
+    render :index
+  end
 
   def coaches
     unless is_logged?

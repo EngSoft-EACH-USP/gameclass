@@ -37,7 +37,6 @@ end
 
 Então ('um coach deve ser criado') do
   coach = Coach.find_by(user_id: @deve_ser_aceito.id)
-  p Coach.all
   expect(coach.user).to eq @deve_ser_aceito
 end
 
