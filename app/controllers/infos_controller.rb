@@ -14,42 +14,38 @@ class InfosController < ApplicationController
   end
 
   def update
-    unless is_logged?
-      head 401
-    end
-    unless params[:id] == current_user.id
-      head 403
-    end
+      # Esses dois campos são de instância para poderem ser acessados de volta na view.
+      @id = params[:id]
+      @user = User.find(params[:id])
+      @username = params[:username]
+      @name = params[:name]
+      password = params[:password]
+      @password = password
 
-    @user = User.find(params[:id])
-    @username = params[:username]
-    @name = params[:name]
-    password = params[:password]
-    @password = password
+      if password != params[:check_password]
+        @different_passwords = true
+        render :forms
 
-    if password != params[:check_password]
-      @different_passwords = true
-      render :forms
+      elsif User.find_by(username: @username)
+        @username_unavaliable = true
+        render :forms
 
-    elsif User.find_by(username: @username)
-      @username_unavaliable = true
-      render :forms
+      else
+        if @password != ''
+          @user.password = @password
+        end
 
-    else
-      if @password != ''
-        @user.password = @password
+        if @username != ''
+          @user.username = @username
+        end
+
+        if @name != ''
+          @user.name = @name
+        end
+
+        @user.save
+        redirect_to '/me'
       end
-
-      if @username != ''
-        @user.username = @username
-      end
-
-      if @name != ''
-        @user.name = @name
-      end
-
-      @user.save
-      redirect_to '/me'
-    end
   end
+
 end
