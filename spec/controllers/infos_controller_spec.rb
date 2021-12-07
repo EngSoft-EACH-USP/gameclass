@@ -54,9 +54,41 @@ RSpec.describe InfosController, type: :controller do
     before do
       @params = {:id => @user.id, :username => 'newusername'}
     end
+
     it 'should return error' do
       post :update, :params => @params
       expect(response).to redirect_to '/me'
+    end
+  end
+
+  describe 'update user cannot be called for another user' do
+    it 'fails if not logged as the right user' do
+      hacker = create :user
+      victim = create :user
+
+      # Esboça um login por parte do hacker
+      controller.stub(:is_logged?).and_return true
+      controller.stub(:current_user).and_return hacker
+
+      # Cria um payload que deve mudar os dados a vítma
+      intended = build :user
+      payload = {
+        id: victim.id,
+        name: intended.name,
+        username: intended.username,
+        password: intended.password,
+        check_password: intended.password
+      }
+
+      post :update, params: payload
+
+      # Atualiza a vitma de acordo com o banco
+      victim = User.find_by_id victim.id
+
+      # O ataque não deve ser capaz de mudar a vítma
+      expect(victim.authenticate payload[:password]).to be_nil
+      expect(victim.name).to_not eq payload[:name]
+      expect(victim.username).to_not eq payload[:username]
     end
   end
 end

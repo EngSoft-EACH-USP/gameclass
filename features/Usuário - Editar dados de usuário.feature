@@ -2,7 +2,7 @@
 
 @mock_user
 
-Funcionalidade: Pagina de edição de usuario
+Funcionalidade: Editar dados de usuário
     Como usuario cadastrado do GameClass,
     Quero uma pagina de edição
     De modo que eu possa editar meus dados pessoais
