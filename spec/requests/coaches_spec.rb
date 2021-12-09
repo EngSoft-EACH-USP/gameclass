@@ -8,7 +8,7 @@ RSpec.describe "/coaches", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      get '/coaches'
+      get '/lol/coaches'
       expect(response).to be_successful
     end
   end

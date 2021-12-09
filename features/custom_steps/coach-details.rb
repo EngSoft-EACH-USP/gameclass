@@ -14,7 +14,7 @@ Dado "que existe pelo menos um coach cadastrado" do
 end
 
 Dado "que eu estou na página de detalhamento" do
-  visit '/coach_details/1'
+  visit '/lol/coach_details/1'
 end
 
 ###################### Quando

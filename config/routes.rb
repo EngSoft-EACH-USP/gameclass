@@ -1,9 +1,9 @@
 
 Rails.application.routes.draw do
-  resources :coach_details, only:[:show]
+  get     '/:game/coaches/:id'          => 'coach_details#show', as: 'coaches_detail'
 
   # Funcionalidade de encontrar coaches
-  get     'coaches'                     => 'coaches#index'
+  get     '/:game/coaches'              => 'coaches#index', as: 'coaches'
 
   # Funcionalidade login/logout
   get     'login'                       => 'session#forms'
@@ -37,8 +37,8 @@ Rails.application.routes.draw do
   get     '/admin'                      => 'admin#index'
 
   # Administrador poder ver os coaches
-  get     'admin/coaches'               => 'admin#coaches'
-  delete  'admin/coaches/:id'           => 'admin#remove'
+  get     'admin/list/coaches'          => 'admin#coaches'
+  delete  'admin/list/coaches/:id'      => 'admin#remove'
 
   # Ver todas as solicitacoes
   get     'admin/affiliate'             => 'affiliate#show'

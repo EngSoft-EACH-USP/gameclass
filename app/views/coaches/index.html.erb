@@ -18,7 +18,7 @@
         <td><%= coach.user.name %></td>
         <td><%= coach.description %></td>
         <td><%= coach.game %></td>
-        <td class='show'><%= link_to 'Show', coach_detail_path(coach) %></td>
+        <td class='show'><%= link_to 'Show', coaches_detail_path(game: coach.game, id: coach.id) %></td>
       </tr>
     <% end %>
   </tbody>
